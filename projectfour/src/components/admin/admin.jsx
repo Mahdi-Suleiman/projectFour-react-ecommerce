@@ -50,7 +50,8 @@ export class Admin extends Component {
     render() {
         return (
             <div>
-                <h1> Admin Dashboard</h1>
+            <h1 style={{color:'green'}}> Admin PAGE </h1>
+                
 
                 {this.state.arr.map(data => {
                     return (
@@ -62,7 +63,7 @@ export class Admin extends Component {
                             <h1>{data.price}</h1> */}
                             <h1>{this.props.counter}</h1>
                             ------------------------------
-                            <h1>{this.props.totalPrice}</h1>
+                            <h1 style={{color:'orange'}}>{JSON.parse(localStorage.getItem('total'))}</h1>
                             ------------------------------
                         </div>
                     )

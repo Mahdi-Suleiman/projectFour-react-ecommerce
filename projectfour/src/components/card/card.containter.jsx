@@ -8,6 +8,7 @@ export default function CardContainer(props) {
         // PRODUCTS PAGE 
         
         <div key={props.index}>
+            <h1 style={{color:'green'}}> PRODUCT PAGE </h1>
             <h4>{props.value.img}</h4>
             <h4>{props.value.title}</h4>
             <h4>{props.value.price}</h4>

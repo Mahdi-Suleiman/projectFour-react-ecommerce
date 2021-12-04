@@ -7,6 +7,7 @@ import Admin from './components/admin/admin';
 import Card from './components/card/card';
 import AddToCart from './components/cart/addtocart';
 import Cart from './components/cart/cart';
+import CheckoutButton from './components/cart/checkout.button';
 
 class App extends React.Component {
     constructor() {
@@ -14,16 +15,19 @@ class App extends React.Component {
 
         this.state = {
             counter: 0,
-            totalPrice:0
+            totalPrice: JSON.parse(localStorage.getItem('total'))
         }
     }
 
     plusCounter = (price) => {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
             this.setState({ counter: this.state.counter + 1 })
-            this.setState({totalPrice: this.state.totalPrice + Number(price)})
+            this.setState({totalPrice:JSON.parse(localStorage.getItem('total'))})
+            this.setState({totalPrice: Number(this.state.totalPrice) + Number(price)})
+            console.log("hello" + typeof(this.state.totalPrice))
+            localStorage.setItem('total', JSON.stringify(this.state.totalPrice))
             console.log(typeof(this.state.totalPrice))
-            console.log(typeof(price))
+            console.log("hello" + typeof(price))
         }
     }
 
@@ -54,9 +58,10 @@ class App extends React.Component {
                 {/* <Login />
                 <Registration /> */}
                 {/* <UserProfile />   */}
-                {/* <Card plusCounter={this.plusCounter} />
-                <Admin counter={this.state.counter} totalPrice={this.state.totalPrice}/> */}
-                <Cart />
+                 {/* <Card plusCounter={this.plusCounter} />
+                <Admin counter={this.state.counter} totalPrice={this.state.totalPrice}/> 
+                <Cart />  */}
+                <CheckoutButton totalPrice={this.state.totalPrice} counter={this.state.counter}/>
 
             </div>
         );

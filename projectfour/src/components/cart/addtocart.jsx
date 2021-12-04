@@ -24,6 +24,12 @@ export class AddToCart extends Component {
                     if (i === cartArray.length - 1) { flag = true }
                     if (cartArray[i].id === productsArray.id) {
                         cartArray[i].quantity += 1
+                        // let totalPrice = JSON.parse(localStorage.getItem('total'))
+                        // console.log("hello" + totalPrice)
+                        // totalPrice += cartArray[i].price;
+                        // console.log("hello" + totalPrice)
+
+                        // localStorage.setItem('total', JSON.stringify(totalPrice))
                         localStorage.setItem('cart', JSON.stringify(cartArray));
                       
                         break;
@@ -35,6 +41,11 @@ export class AddToCart extends Component {
             } else {
                 firstPushArray.push(JSON.parse(localStorage.getItem('products'))[index])
                 firstPushArray[0].quantity += 1
+
+                        // totalPrice += firstPushArray[0].price;
+                        // console.log("hello" + totalPrice)
+
+                        // localStorage.setItem('total', JSON.stringify(totalPrice))
                 localStorage.setItem('cart', JSON.stringify(firstPushArray))
                 console.log(firstPushArray)
             }

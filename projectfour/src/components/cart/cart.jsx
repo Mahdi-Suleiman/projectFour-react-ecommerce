@@ -12,10 +12,8 @@ export class Cart extends Component {
     }
 
     plusItem = (id)=> {
-        console.log(this.state.quantity)
         let idIndex;
         let indexArray = this.state.quantity;
-        console.log(this.props.index)
         for(let i=0;i<indexArray.length;i++){
             if(id===indexArray[i].id){
                 idIndex = i;
@@ -23,6 +21,11 @@ export class Cart extends Component {
             }
         }
         indexArray[idIndex].quantity +=1;
+        let totalPrice = JSON.parse(localStorage.getItem('total'))
+        totalPrice += indexArray[idIndex].price
+        console.log(totalPrice)
+        console.log(typeof(totalPrice))
+        localStorage.setItem('total',JSON.stringify(totalPrice))
         localStorage.setItem('cart', JSON.stringify(indexArray))
         this.setState({quantity: indexArray})
     }
@@ -40,8 +43,11 @@ export class Cart extends Component {
         }
         if(indexArray[idIndex].quantity!=0){
         indexArray[idIndex].quantity -=1;
+        let totalPrice = JSON.parse(localStorage.getItem('total'))
+        totalPrice -= indexArray[idIndex].price
+        localStorage.setItem('total',JSON.stringify(totalPrice))
         localStorage.setItem('cart', JSON.stringify(indexArray))
-        this.setState({quantity: indexArray})
+        this.setState({quantity: indexArray}) 
         }
     }
 
