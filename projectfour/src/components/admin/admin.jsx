@@ -55,11 +55,15 @@ export class Admin extends Component {
                 {this.state.arr.map(data => {
                     return (
                         <div>
-                            <h1>{data.img}</h1>
+                            {/* <h1>{data.img}</h1>
                             <h1>{data.title}</h1>
                             <h1>{data.shortDesc}</h1>
                             <h1>{data.longDesc}</h1>
-                            <h1>{data.price}</h1>
+                            <h1>{data.price}</h1> */}
+                            <h1>{this.props.counter}</h1>
+                            ------------------------------
+                            <h1>{this.props.totalPrice}</h1>
+                            ------------------------------
                         </div>
                     )
                 })}

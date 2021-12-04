@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+import Cart from './cart';
 
 export class AddToCart extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            counter:0
+        }
     }
 
     addToCart = (index) => {
@@ -20,7 +24,8 @@ export class AddToCart extends Component {
                     if (i === cartArray.length - 1) { flag = true }
                     if (cartArray[i].id === productsArray.id) {
                         cartArray[i].quantity += 1
-                        localStorage.setItem('cart', JSON.stringify(cartArray))
+                        localStorage.setItem('cart', JSON.stringify(cartArray));
+                      
                         break;
                     } else if (flag === true) {
                         cartArray.push(productsArray)
@@ -31,13 +36,16 @@ export class AddToCart extends Component {
                 firstPushArray.push(JSON.parse(localStorage.getItem('products'))[index])
                 firstPushArray[0].quantity += 1
                 localStorage.setItem('cart', JSON.stringify(firstPushArray))
+                console.log(firstPushArray)
             }
         }
     }
 
     render() {
         return (
-            <button onClick={() => { this.addToCart(this.props.index) }}>Add To Cart</button>
+            <div>
+            <button onClick={() =>{ this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price)}}>Add To Cart</button>
+        </div>
         )
     }
 }
