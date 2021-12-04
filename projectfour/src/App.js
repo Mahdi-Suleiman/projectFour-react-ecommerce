@@ -37,7 +37,7 @@ class App extends React.Component {
             <div>
                  {/* <Login />
                 <Registration /> */}
-                <UserProfile />  
+                {/* <UserProfile />   */}
                 <Card />
                 <Admin />
             </div>
