@@ -57,13 +57,13 @@ class ProductDetails extends Component {
                                 <textarea type="text" name="" id="" value={this.state.productLongDesc} readOnly ></textarea>
                             </label>
                         </div>
-                        
+
                     </form>
-                    <AddToCart index={this.state.productID} plusCounter={this.props.plusCounter} handleAddToCart={this.props.handleAddToCart}/>
+                    <AddToCart index={this.state.productID} plusCounter={this.props.plusCounter} handleAddToCart={this.props.handleAddToCart} />
                 </div>
             </div>
         )
+
     }
 }
-
-export default ProductDetails;
+export default ProductDetails
