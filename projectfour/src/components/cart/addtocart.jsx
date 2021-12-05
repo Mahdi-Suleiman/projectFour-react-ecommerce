@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import Cart from './cart';
+import '../card/card.css'
 
 export class AddToCart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            counter:0
+            counter: 0
         }
     }
 
@@ -31,7 +32,7 @@ export class AddToCart extends Component {
 
                         // localStorage.setItem('total', JSON.stringify(totalPrice))
                         localStorage.setItem('cart', JSON.stringify(cartArray));
-                      
+
                         break;
                     } else if (flag === true) {
                         cartArray.push(productsArray)
@@ -42,10 +43,10 @@ export class AddToCart extends Component {
                 firstPushArray.push(JSON.parse(localStorage.getItem('products'))[index])
                 firstPushArray[0].quantity += 1
 
-                        // totalPrice += firstPushArray[0].price;
-                        // console.log("hello" + totalPrice)
+                // totalPrice += firstPushArray[0].price;
+                // console.log("hello" + totalPrice)
 
-                        // localStorage.setItem('total', JSON.stringify(totalPrice))
+                // localStorage.setItem('total', JSON.stringify(totalPrice))
                 localStorage.setItem('cart', JSON.stringify(firstPushArray))
                 console.log(firstPushArray)
             }
@@ -55,8 +56,8 @@ export class AddToCart extends Component {
     render() {
         return (
             <div>
-            <button onClick={() =>{ this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price)}}>Add To Cart</button>
-        </div>
+                <button className="add-to-cart-button" onClick={() => { this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price) }}>Add To Cart</button>
+            </div>
         )
     }
 }

@@ -8,7 +8,9 @@ import Card from './components/card/card';
 import AddToCart from './components/cart/addtocart';
 import Cart from './components/cart/cart';
 import CheckoutButton from './components/cart/checkout.button';
-
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
+import ProductDetails from './components/card/product.details';
+import Footer from './components/footer/footer';
 class App extends React.Component {
     constructor() {
         super();
@@ -22,12 +24,12 @@ class App extends React.Component {
     plusCounter = (price) => {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
             this.setState({ counter: this.state.counter + 1 })
-            this.setState({totalPrice:JSON.parse(localStorage.getItem('total'))})
-            this.setState({totalPrice: Number(this.state.totalPrice) + Number(price)})
-            console.log("hello" + typeof(this.state.totalPrice))
+            this.setState({ totalPrice: JSON.parse(localStorage.getItem('total')) })
+            this.setState({ totalPrice: Number(this.state.totalPrice) + Number(price) })
+            console.log("hello" + typeof (this.state.totalPrice))
             localStorage.setItem('total', JSON.stringify(this.state.totalPrice))
-            console.log(typeof(this.state.totalPrice))
-            console.log("hello" + typeof(price))
+            console.log(typeof (this.state.totalPrice))
+            console.log("hello" + typeof (price))
         }
     }
 
@@ -55,14 +57,21 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Login />
-                <Registration />
-                <UserProfile />  
-                 {/* <Card plusCounter={this.plusCounter} /> */}
-                {/* <Admin counter={this.state.counter} totalPrice={this.state.totalPrice}/>  */}
-                {/* <Cart />  */}
-                <CheckoutButton totalPrice={this.state.totalPrice} counter={this.state.counter}/>
+                {/* <Login /> */}
+                {/* <Registration /> */}
+                {/* <UserProfile /> */}
+                <Routes>
+                    <Route path="/products" element={<Card plusCounter={this.plusCounter} role="user" />}>
+                    </Route>
 
+                    <Route path="/productdetails" element={<ProductDetails />}>
+                    </Route>
+                </Routes>
+
+                {/* <Admin counter={this.state.counter} totalPrice={this.state.totalPrice} /> */}
+                {/* <Cart /> */}
+                {/* <CheckoutButton totalPrice={this.state.totalPrice} counter={this.state.counter} /> */}
+                <Footer />
             </div>
         );
     }

@@ -18,21 +18,21 @@ export class Login extends Component {
 
     loginValidation = (e) => {
         e.preventDefault();
-        
-            let flag = true;
-            let usersArray = [];
-            usersArray = (JSON.parse(localStorage.getItem('users')))
-            for (let i = 0; i < usersArray.length; i++) {
-                if (this.state.userEmail === usersArray[i].email && this.state.userPassword === usersArray[i].password)
-                {
-                    localStorage.setItem('loggedUser', JSON.stringify(usersArray[i]))
-                    alert("Thank You ...You Can Go To Home")
-                    return (flag=false)
-                } }
-                if(flag===true) {
-                    alert('you Need to sign up ')
-                }
-        
+
+        let flag = true;
+        let usersArray = [];
+        usersArray = (JSON.parse(localStorage.getItem('users')))
+        for (let i = 0; i < usersArray.length; i++) {
+            if (this.state.userEmail === usersArray[i].email && this.state.userPassword === usersArray[i].password) {
+                localStorage.setItem('loggedUser', JSON.stringify(usersArray[i]))
+                alert("Thank You ...You Can Go To Home")
+                return (flag = false)
+            }
+        }
+        if (flag === true) {
+            alert('you Need to sign up ')
+        }
+
         // let arr = [];
         // arr = {fname:"ghassan",lname:"",email:"gh@mail.com",password:"",repassword:""}
         // localStorage.setItem('isLogged', 'ghassan')
@@ -45,7 +45,7 @@ export class Login extends Component {
     render() {
         return (
             <main className="main-cont">
-                <div className="container">
+                <div className="container-login">
                     <div className="header">
                         <h2>Sign in</h2>
                     </div>
