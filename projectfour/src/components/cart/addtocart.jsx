@@ -52,7 +52,9 @@ export class AddToCart extends Component {
         return (
             <div>
 
+
                     <button className="add-to-cart-button" onClick={() => { this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price); this.props.handleAddToCart() }}>Add To Cart</button>
+
 
             </div>
         )

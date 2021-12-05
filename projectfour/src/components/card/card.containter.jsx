@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AddToCart from '../cart/addtocart'
 import {  Link } from 'react-router-dom';
 import DeleteCard from './delete.card'
+
 import '../card/card.css'
 import ProductDetails from './product.details'
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
@@ -35,6 +36,5 @@ class CardContainer extends Component {
             </div>
         )
     }
-
 }
 export default CardContainer;

@@ -8,6 +8,10 @@ import Card from './components/card/card';
 import AddToCart from './components/cart/addtocart';
 import Cart from './components/cart/cart';
 import CheckoutButton from './components/cart/checkout.button';
+import Navbar from './components/navbar/navbar';
+import {BrowserRouter, Route, Routes, Link} from 'react-router-dom'
+import Homepage from './components/homepage/homepage';
+import CartDisplay from './components/cart/cart.display';
 
 import Navbar from './components/navbar/navbar';
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
@@ -76,9 +80,11 @@ class App extends React.Component {
                     <Route exact path="/registration" element={<Registration/>} />
                     <Route exact path="/cartdisplay" element={<Cart plusCounter={this.plusCounter} minusCounter={this.minusCounter}/>}/>
                     <Route exact path="/checkout" element={<CheckoutButton/>} />
+
                      <Route path="/productdetails" element={<ProductDetails />}>
                 </Routes>
                 <Footer />
+
 
                 {/* <Login />
                 <Registration />
