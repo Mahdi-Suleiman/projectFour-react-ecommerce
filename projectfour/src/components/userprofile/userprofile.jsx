@@ -34,6 +34,7 @@ export function UserProfile (props) {
                     <input type="text" name="email" value={this.state.email} onChange={this.inputTracker} placeholder={this.props.loggedUser.email}/>safasfa
                     <button onClick={(e) => this.props.editUserData(e)}>TEST</button>
                 </form> */}
+                
                 <form>
                     <label /> {JSON.parse(localStorage.getItem('loggedUser')).fname} 
                     <label /> {JSON.parse(localStorage.getItem('loggedUser')).lname}

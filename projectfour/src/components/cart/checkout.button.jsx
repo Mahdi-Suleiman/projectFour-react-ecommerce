@@ -9,6 +9,17 @@ export function CheckoutButton(props) {
         
     }
 
+    const checkOut = () =>{
+        const loggedUserArray = JSON.parse(localStorage.getItem('loggedUser'))
+        const allUsersArray = JSON.parse(localStorage.getItem('users'))
+        const filteredUsers = allUsersArray.filter(data=> loggedUserArray !== allUsersArray)
+        loggedUserArray.orders.push(cartArray)
+        allUsersArray.push(loggedUserArray)
+        localStorage.setItem('users', JSON.stringify(allUsersArray))
+        console.log(localStorage.getItem('users'))
+
+    }
+
     return (
         <div >
             <form onSubmit={handleSubmit}>
@@ -108,7 +119,7 @@ export function CheckoutButton(props) {
                             </div>
                         
                     </div>
-                    <button className="button-order">Place Order</button>
+                    <button onClick={checkOut()}className="button-order">Place Order</button>
                 </div>
             </div>
             </form>

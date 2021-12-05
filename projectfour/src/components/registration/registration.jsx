@@ -9,9 +9,8 @@ export class Registration extends Component {
             lastName: '',
             userEmail: '',
             userPassword: '',
-            userRePassword: '',
-            userCity: '',
-            userAvatar: ''
+            userRePassword:'',
+            
         }
     }
 
@@ -29,7 +28,7 @@ export class Registration extends Component {
             email: this.state.userEmail,
             password: this.state.userPassword,
             repassword: this.state.userRePassword,
-
+            orders :[]
         }
 
         let usersArray = []
