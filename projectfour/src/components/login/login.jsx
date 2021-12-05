@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom';
 import './login.style.css'
 
 export class Login extends Component {
@@ -66,7 +67,7 @@ export class Login extends Component {
                         </div>
                         <button type="submit" className="log-btn">Sign in</button>
                         <p className="font">Don't have an account?</p>
-                        <button type="button" className="reg-btn" >Register</button>
+                        <NavLink to="/registration"><button type="button" className="reg-btn" ></button></NavLink>
                     </form>
                 </div>
             </main>

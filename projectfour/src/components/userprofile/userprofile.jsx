@@ -98,6 +98,7 @@ class UserProfile extends Component {
             </div>
         )
     }
+
 }
 
 // export function UserProfile(props) {
