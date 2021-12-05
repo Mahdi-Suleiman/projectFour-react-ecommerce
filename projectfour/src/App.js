@@ -8,11 +8,13 @@ import Card from './components/card/card';
 import AddToCart from './components/cart/addtocart';
 import Cart from './components/cart/cart';
 import CheckoutButton from './components/cart/checkout.button';
+
 import Navbar from './components/navbar/navbar';
-import {BrowserRouter, Route, Routes, Link} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 import Homepage from './components/homepage/homepage';
 import CartDisplay from './components/cart/cart.display';
-
+import ProductDetails from './components/card/product.details';
+import Footer from './components/footer/footer';
 class App extends React.Component {
     constructor() {
         super();
@@ -26,6 +28,7 @@ class App extends React.Component {
     plusCounter = (price) => {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
             this.setState({ counter: this.state.counter + 1 })
+
         }
     }
 
@@ -62,6 +65,7 @@ class App extends React.Component {
         return (
             
             <div>
+
                 <BrowserRouter>
                 <Navbar counter={this.state.counter}/>
                 {/* <Card plusCounter={this.plusCounter} /> */}
@@ -72,7 +76,9 @@ class App extends React.Component {
                     <Route exact path="/registration" element={<Registration/>} />
                     <Route exact path="/cartdisplay" element={<Cart plusCounter={this.plusCounter} minusCounter={this.minusCounter}/>}/>
                     <Route exact path="/checkout" element={<CheckoutButton/>} />
+                     <Route path="/productdetails" element={<ProductDetails />}>
                 </Routes>
+                <Footer />
 
                 {/* <Login />
                 <Registration />

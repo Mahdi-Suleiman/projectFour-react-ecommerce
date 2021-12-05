@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { NavLink, Link } from 'react-router-dom';
 import Login from '../login/login';
 import Cart from './cart';
+import '../card/card.css'
 
 export class AddToCart extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
             counter: 0,
             loggedUser: localStorage.getItem('loggedUser'),
             clicked: false
@@ -39,6 +41,7 @@ export class AddToCart extends Component {
             } else {
                 firstPushArray.push(JSON.parse(localStorage.getItem('products'))[index])
                 firstPushArray[0].quantity += 1
+
                 localStorage.setItem('cart', JSON.stringify(firstPushArray))
                 console.log(firstPushArray)
             }
@@ -48,7 +51,9 @@ export class AddToCart extends Component {
     render() {
         return (
             <div>
-                    <button onClick={() => { this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price); this.props.handleAddToCart() }}>Add To Cart</button>
+
+                    <button className="add-to-cart-button" onClick={() => { this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price); this.props.handleAddToCart() }}>Add To Cart</button>
+
             </div>
         )
     }
