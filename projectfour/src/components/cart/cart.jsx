@@ -43,6 +43,8 @@ export class Cart extends Component {
         }
         if(indexArray[idIndex].quantity!=0){
         indexArray[idIndex].quantity -=1;
+        console.log('he' ,indexArray[idIndex].quantity)
+        console.log('he',this.state.quantity)
         let totalPrice = JSON.parse(localStorage.getItem('total'))
         totalPrice -= indexArray[idIndex].price
         localStorage.setItem('total',JSON.stringify(totalPrice))
@@ -52,14 +54,16 @@ export class Cart extends Component {
     }
 
     render() {
+        
         return (
-            JSON.parse(localStorage.getItem('cart')).map(data=>{
-                return(
-                    
-                     <CartDisplay img={data.img} title={data.title} shortDesc={data.shortDesc} price={data.price} quantity={data.quantity} id={data.id} plusItem={this.plusItem} minusItem={this.minusItem}/>   
-                )
-            })
+            <div>
+                {localStorage.getItem('cart') ? 
+                JSON.parse(localStorage.getItem('cart')).map(data=>
+                        
+                         <CartDisplay img={data.img} title={data.title} shortDesc={data.shortDesc} price={data.price} quantity={data.quantity} id={data.id} plusItem={this.plusItem} minusItem={this.minusItem} plusCounter={this.props.plusCounter} minusCounter={this.props.minusCounter}/>) : <h1>Your cart is empty</h1>}
+            </div>
         )
+       
     }
 }
 
