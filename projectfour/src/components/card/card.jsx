@@ -1,7 +1,11 @@
 import React from 'react'
 import CardContainer from './card.containter'
 import './card.css'
-import {Link} from 'react-router-dom'
+
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
+
+
+
 
 export default class Card extends React.Component {
     constructor(props){
@@ -25,11 +29,11 @@ export default class Card extends React.Component {
             {
                 this.state.localStorageData.map((data, index) => {
                     return (
+
                         <CardContainer value={data} index={index} role={'user'} plusCounter={this.props.plusCounter} deleteCard={this.props.deleteCard} handleAddToCart = {this.handleAddToCart}/>
                     )
                 })
             }
-
         </div>
         )
         else

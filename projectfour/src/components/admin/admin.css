@@ -8,7 +8,8 @@
 
 .admin-dashboard-container {
     font-family: 'Zen Antique Soft', serif;
-    margin: 2em;
+    /* margin: 2em; */
+    padding: 2em;
     /* width: 100%; */
 }
 
@@ -50,11 +51,11 @@
 
 #add-new-product-button {
     display: inline-block;
-    padding: 15px;
+    padding: 1em;
     border: none;
     border-radius: 2em;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-top: 1em;
     width: 40%;
     letter-spacing: .1em;
@@ -70,11 +71,22 @@
 
 
 @media all and (max-width:1000px) {
+    .admin-dashboard-form {
+        width: 80%;
+    }
+
     #add-new-product-button {
-        display: block;
         margin: 0.2em auto;
         width: 100%;
+        font-size: 0.7em;
+        /* padding: unset; */
 
+    }
+}
+
+@media all and (max-width:400px) {
+    .admin-dashboard-form {
+        width: 100%;
     }
 }
 

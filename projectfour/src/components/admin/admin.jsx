@@ -13,8 +13,8 @@ export class Admin extends Component {
             productShortDesc: '',
             productPrice: '',
             productLongDesc: '',
-            productQuantity:0,
-            productID:'',
+            productQuantity: 0,
+            productID: '',
             arr: JSON.parse(localStorage.getItem('products'))
         }
     }
@@ -24,15 +24,15 @@ export class Admin extends Component {
 
         let dummyArr = [];
         let filename = document.getElementById('file-id').files[0].name;
-        
+
         let productsArray = {
-            img:` products/${filename}`,
+            img: `products/${filename}`,
             title: this.state.productTitle,
             shortDesc: this.state.productShortDesc,
             price: this.state.productPrice,
             longDesc: this.state.productLongDesc,
             quantity: this.state.productQuantity,
-            id: this.state.productID 
+            id: this.state.productID
         }
         if (localStorage.getItem('products') === null) {
             dummyArr.push(productsArray)
@@ -60,10 +60,10 @@ export class Admin extends Component {
     }
 
     deleteCard = () => {
-    //     let oldItemsArray = (JSON.parse(localStorage.getItem('products')));
-    //     console.log(oldItemsArray)
-    //     const newItemsArray = oldItemsArray.filter((data,index) => data.id !== index)
-    //     console.log(newItemsArray)
+        //     let oldItemsArray = (JSON.parse(localStorage.getItem('products')));
+        //     console.log(oldItemsArray)
+        //     const newItemsArray = oldItemsArray.filter((data,index) => data.id !== index)
+        //     console.log(newItemsArray)
 
         // console.log(newItemsArray)
         // localStorage.setItem("products", JSON.stringify(newItemsArray))
@@ -76,7 +76,7 @@ export class Admin extends Component {
         return (
             <div className="admin-dashboard-container">
                 <h1>Admin Dashboard</h1>
-                <Card role="admin" deleteCard={this.deleteCard}/>
+                <Card role="admin" deleteCard={this.deleteCard} />
                 <div className="form-wrapper">
                     <h2>Create a product</h2>
                     <form className="admin-dashboard-form" onSubmit={this.editArray}>
@@ -88,6 +88,7 @@ export class Admin extends Component {
                         <input type="text" name="productShortDesc" className="form-input" placeholder="short description" value={this.state.productShortDesc} onChange={this.inputTracker} required />
                         <input type="text" name="productPrice" className="form-input" placeholder="Product price" value={this.state.productPrice} onChange={this.inputTracker} required />
                         <textarea type="text" name="productLongDesc" className="form-input" placeholder="Long description" value={this.state.productLongDesc} onChange={this.inputTracker} required ></textarea>
+                        <input type="text" name="productID" className="form-input" placeholder="ID" value={this.state.productID} onChange={this.inputTracker} />
                         <button id="add-new-product-button">Add New Product</button>
                     </form>
                 </div>
