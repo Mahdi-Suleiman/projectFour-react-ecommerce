@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Card from '../card/card';
+import "./admin.css"
 export class Admin extends Component {
     constructor() {
         super();
@@ -15,26 +17,31 @@ export class Admin extends Component {
 
     editArray = (e) => {
         e.preventDefault();
-
-        let dummyArr = [];
-
+        let filename = document.getElementById('file-id').files[0].name;
         let productsArray = {
-            img: this.state.productImage,
+            img: `products/${filename}`,
             title: this.state.productTitle,
             shortDesc: this.state.productShortDesc,
             price: this.state.productPrice,
             longDesc: this.state.productLongDesc
         }
+
+        let dummyArr = [];
+
+        //if local storage has to "products key" push an empty array
         if (localStorage.getItem('products') === null) {
             dummyArr.push(productsArray)
             this.setState({ arr: dummyArr })
             localStorage.setItem('products', JSON.stringify(dummyArr))
-        } else {
+        }
+        //else push a new object to the array 
+        else {
             dummyArr = (JSON.parse(localStorage.getItem('products')));
             dummyArr.push(productsArray);
             localStorage.setItem('products', JSON.stringify(dummyArr))
             this.setState({ arr: dummyArr })
         }
+        this.resetForm();
     }
 
     inputTracker = (e) => {
@@ -42,27 +49,33 @@ export class Admin extends Component {
         this.setState({ [name]: value })
 
     }
+    resetForm = () => {
+        const inputs = document.querySelectorAll(".form-input");
+        inputs.forEach((input) => {
+            input.value = '';
+        })
+    }
 
     render() {
         return (
-            <div>
-                <h1> Admin Dashboard</h1>
-
-                {this.state.arr.map(data => {
-                    return (
-                        <h1>{data.img}</h1>
-                    )
-                })}
-
-                <form onSubmit={this.addProductFunction}>
-                    <input type="text" name="productImage" value={this.state.productImage} onChange={this.inputTracker} />
-                    <input type="text" name="productTitle" value={this.state.productTitle} onChange={this.inputTracker} />
-                    <input type="text" name="productShortDesc" value={this.state.productShortDesc} onChange={this.inputTracker} />
-                    <input type="text" name="productPrice" value={this.state.productPrice} onChange={this.inputTracker} />
-                    <input type="text" name="productLongDesc" value={this.state.productLongDesc} onChange={this.inputTracker} />
-                    <button onClick={this.editArray}>Add New Product</button>
-                </form>
-            </div>
+            <div className="admin-dashboard-container">
+                <h1>Admin Dashboard</h1>
+                <Card role="admin" />
+                <div className="form-wrapper">
+                    <h2>Create a product</h2>
+                    <form className="admin-dashboard-form" onSubmit={this.editArray}>
+                        <label className="custom-file-upload">
+                            <input type="file" id="file-id" name="image-url" className="form-input" placeholder="Prodcut's image URL" onChange={this.inputTracker} required />
+                            upload a product
+                        </label>
+                        <input type="text" name="productTitle" className="form-input" placeholder="Product title" value={this.state.productTitle} onChange={this.inputTracker} required />
+                        <input type="text" name="productShortDesc" className="form-input" placeholder="short description" value={this.state.productShortDesc} onChange={this.inputTracker} required />
+                        <input type="text" name="productPrice" className="form-input" placeholder="Product price" value={this.state.productPrice} onChange={this.inputTracker} required />
+                        <textarea type="text" name="productLongDesc" className="form-input" placeholder="Long description" value={this.state.productLongDesc} onChange={this.inputTracker} required ></textarea>
+                        <button id="add-new-product-button">Add New Product</button>
+                    </form>
+                </div>
+            </div >
         )
     }
 }

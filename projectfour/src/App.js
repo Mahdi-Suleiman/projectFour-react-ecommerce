@@ -35,11 +35,11 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {/* <Login />
-                <Registration />
-                <UserProfile /> */}
-                <Card />
-                <Admin />
+                {/* <Login /> */}
+                {/* <Registration /> */}
+                <UserProfile />
+                {/* <Card /> */}
+                {/* <Admin /> */}
             </div>
         );
     }
