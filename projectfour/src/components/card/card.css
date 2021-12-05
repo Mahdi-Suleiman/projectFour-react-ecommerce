@@ -13,7 +13,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin: 50px 0;
+    margin: 3.125em 0;
     font-family: 'Zen Antique Soft', serif;
 }
 
@@ -24,19 +24,17 @@
     border-radius: 10px;
     padding-top: 0.6em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: .4s;
+    transition: 0.4s;
 }
 
 .card:hover {
     box-shadow: 0 0 11px rgba(33, 33, 33, .2);
-    transform: translate(0px, -8px);
+    transform: translate(0, -0.5em);
 }
 
 .card img {
     width: 80%;
     height: auto;
-
-
     text-align: center;
     margin: 0 auto;
     display: block;
@@ -45,11 +43,11 @@
 p {
     text-align: center;
     color: #b2bec3;
-    padding: 0 8px;
+    padding: 0 0.5em;
 }
 
 h6 {
-    font-size: 26px;
+    font-size: 1.5em;
     text-align: center;
     color: #222f3e;
     margin: 0;
@@ -61,18 +59,22 @@ h6::after {
 
 .add-to-cart-button {
     text-align: center;
-    font-size: 24px;
+    font-size: 1.5em;
     color: rgb(133, 129, 129);
     color: brown;
     font-weight: bold;
     width: 100%;
-    padding: 15px;
+    padding: 1em;
     border: 0px;
     outline: none;
     cursor: pointer;
-    margin-top: 5px;
+    margin-top: 0.45em;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+
+.card a {
+    all: unset !important;
 }
 
 /* tablet */

@@ -1,0 +1,84 @@
+.testimonial-section {
+    margin: 3rem auto;
+    width: 40%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    color: gray;
+  }
+  .testimonial-section .carousel-inner span {
+    /* color: #a7232c !important; */
+    font-weight: bold;
+    color: gray !important;
+  }
+  .testimonial-section .header {
+    text-align: center;
+      font-size: 3rem;
+      margin: 5rem 0;
+      font-family: 'Sriracha', cursive;
+      color: #FF7F50;
+  }
+  .testimonial-section .carousel-inner span {
+    color: black;
+  }
+  .fa-quote-left {
+    margin-top: 2rem;
+    color: #a7232c !important;
+    font-size: 3rem !important;
+  }
+  .carousel-item img {
+    margin: auto;
+    width: 200px;
+    max-height: 300px;
+  }
+  .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+  }
+  
+  .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+  }
+  
+ 
+.carousel h1  {
+    line-height:2em; padding-bottom:15px;
+    text-transform: none;
+    font-size:.7em;
+    font-weight: normal;
+    font-style: italic; font-family: 'Sriracha', cursive;
+    color:#999; letter-spacing:-0.005em; word-spacing:1px;
+
+  
+}
+.carousel h1:after, .carousel h1:before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 5rem;
+    height: 0.4rem;
+    content: "";
+    right: 5rem;
+    margin:auto;
+    background-color: #ccc;
+}
+.carousel h1:before {
+    background-color:#FF7F50;
+    right: 0.5rem; width: 9rem;
+} */
+
+
+
+
+
+  @media screen and (max-width: 480px) {
+    .testimonial-section img {
+      width: 100% !important;
+    }
+    .testimonial-section {
+      width: 100% !important;
+    }
+  }
+  

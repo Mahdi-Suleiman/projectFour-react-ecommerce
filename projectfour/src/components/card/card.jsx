@@ -1,35 +1,35 @@
 import React from 'react'
 import CardContainer from './card.containter'
 import './card.css'
-import {Link} from 'react-router-dom'
+
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
+
+
+
 
 export default class Card extends React.Component {
     constructor(props){
         super(props);
         this.state={
             loggedIn:JSON.parse(localStorage.getItem('loggedUser')),
-            clicked: false,
          localStorageData : JSON.parse(localStorage.getItem('products'))
 
         }
     }
-    handleAddToCart=()=>{
-        this.setState({clicked:true})
-    }
 
     render(){
    
-        if((!this.state.clicked) || (this.state.clicked&&this.state.loggedIn) )
+        if((!this.props.clicked) || (this.props.clicked&&this.state.loggedIn) )
         return (
         <div className="card-container">
             {
                 this.state.localStorageData.map((data, index) => {
                     return (
-                        <CardContainer value={data} index={index} role={'user'} plusCounter={this.props.plusCounter} deleteCard={this.props.deleteCard} handleAddToCart = {this.handleAddToCart}/>
+
+                        <CardContainer value={data} index={index} role={'user'} plusCounter={this.props.plusCounter} deleteCard={this.props.deleteCard} handleAddToCart = {this.props.handleAddToCart}/>
                     )
                 })
             }
-
         </div>
         )
         else

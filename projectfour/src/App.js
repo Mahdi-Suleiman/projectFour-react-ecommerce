@@ -9,79 +9,63 @@ import AddToCart from './components/cart/addtocart';
 import Cart from './components/cart/cart';
 import CheckoutButton from './components/cart/checkout.button';
 import Navbar from './components/navbar/navbar';
-import {BrowserRouter, Route, Routes, Link} from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Homepage from './components/homepage/homepage';
-import CartDisplay from './components/cart/cart.display';
 
+import ProductDetails from './components/card/product.details';
+import Footer from './components/footer/footer';
+import CartDisplay from './components/cart/cart.display';
 class App extends React.Component {
     constructor() {
         super();
 
         this.state = {
             counter: 0,
-            totalPrice: JSON.parse(localStorage.getItem('total'))
+            totalPrice: JSON.parse(localStorage.getItem('total')),
+            clicked: false,
         }
     }
 
-    plusCounter = (price) => {
+    plusCounter = () => {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
             this.setState({ counter: this.state.counter + 1 })
+
         }
     }
 
     minusCounter = (price) => {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
             // -1 to be solved
-            if(this.state.counter >=0)
-            this.setState({ counter: this.state.counter - 1 })
+            if (this.state.counter >= 0)
+                this.setState({ counter: this.state.counter - 1 })
         }
     }
 
-    // editUserData = (e,firstname,lastname,email,password) => {
-    //     e.preventDefault();
+    handleAddToCart=()=>{
+        this.setState({clicked:true})
+    }
 
-    //     let localArray = [JSON.parse(localStorage.getItem('users'))]
-    //     let loggedUser = JSON.parse(localStorage.getItem('isLogged'))
-
-    //     console.log(localArray)
-    //     console.log(loggedUser)
-
-    //     for(let i=0;i<localArray.length;i++){
-    //         if(localArray[i].fname===loggedUser){
-    //             firstname = localArray[i].fname;
-    //             lastname = localArray[i].lname;
-    //             email = localArray[i].email;
-    //             password = localArray[i].password;
-    //             this.setState({currentUserData: localArray[i]})
-    //         }
-    //     }
-
-    // }
+    deleteItem = (id)=>{
+        const allProducts = JSON.parse(localStorage.getItem('cart')).filter(data=> data.id !== id)
+        localStorage.setItem('cart',JSON.stringify(allProducts))
+        this.setState({})
+    }
 
     render() {
         return (
-            
             <div>
-                <BrowserRouter>
-                <Navbar counter={this.state.counter}/>
-                {/* <Card plusCounter={this.plusCounter} /> */}
-                <Routes>
-                    <Route exact path="/" element={<Homepage />} />
-                    <Route exact path="/card" element={<Card plusCounter={this.plusCounter}/>} />
-                    <Route exact path="/signin" element={<Login/>} />
-                    <Route exact path="/registration" element={<Registration/>} />
-                    <Route exact path="/cartdisplay" element={<Cart plusCounter={this.plusCounter} minusCounter={this.minusCounter}/>}/>
-                    <Route exact path="/checkout" element={<CheckoutButton/>} />
-                </Routes>
+                    <Navbar counter={this.state.counter} />
+                    <Routes>
+                        <Route exact path="/" element={<Homepage />} />
+                        <Route exact path="/card" element={<Card handleAddToCart={this.handleAddToCart} clicked={this.state.clicked} plusCounter={this.plusCounter} />} />
+                        <Route exact path="/signin" element={<Login />} />
+                        <Route exact path="/registration" element={<Registration />} />
+                        <Route exact path="/cartdisplay" element={<Cart plusCounter={this.plusCounter} minusCounter={this.minusCounter} deleteItem={this.deleteItem}/>} />
+                        <Route exact path="/checkout" element={<CheckoutButton />} />
+                        <Route exact path="/productdetails" element={<ProductDetails plusCounter={this.plusCounter} handleAddToCart={this.handleAddToCart}/>} />
+                    </Routes>
+                    <Footer />
 
-                {/* <Login />
-                <Registration />
-                <UserProfile />   */}
-                {/* <Admin counter={this.state.counter} totalPrice={this.state.totalPrice}/>  */}
-                {/* <Cart />  */}
-                {/* <CheckoutButton totalPrice={this.state.totalPrice} counter={this.state.counter}/> */}
-                </BrowserRouter >
-    
             </div>
 
         );
