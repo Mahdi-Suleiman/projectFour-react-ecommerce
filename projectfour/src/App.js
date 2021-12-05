@@ -81,6 +81,7 @@ class App extends React.Component {
                 {/* <Cart />  */}
                 {/* <CheckoutButton totalPrice={this.state.totalPrice} counter={this.state.counter}/> */}
                 </BrowserRouter >
+    
             </div>
 
         );
