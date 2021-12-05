@@ -1,41 +1,44 @@
 import React, { Component } from 'react'
 import Card from '../card/card';
-import "./admin.css"
+import './admin.css'
+import '../card/card.css'
+
 export class Admin extends Component {
     constructor() {
         super();
-        // admin dashboard where you add items to local storage
+
         this.state = {
             productImage: '',
             productTitle: '',
             productShortDesc: '',
             productPrice: '',
             productLongDesc: '',
+            productQuantity:0,
+            productID:'',
             arr: JSON.parse(localStorage.getItem('products'))
         }
     }
 
     editArray = (e) => {
         e.preventDefault();
+
+        let dummyArr = [];
         let filename = document.getElementById('file-id').files[0].name;
+        
         let productsArray = {
-            img: `products/${filename}`,
+            img:` products/${filename}`,
             title: this.state.productTitle,
             shortDesc: this.state.productShortDesc,
             price: this.state.productPrice,
-            longDesc: this.state.productLongDesc
+            longDesc: this.state.productLongDesc,
+            quantity: this.state.productQuantity,
+            id: this.state.productID 
         }
-
-        let dummyArr = [];
-
-        //if local storage has to "products key" push an empty array
         if (localStorage.getItem('products') === null) {
             dummyArr.push(productsArray)
             this.setState({ arr: dummyArr })
             localStorage.setItem('products', JSON.stringify(dummyArr))
-        }
-        //else push a new object to the array 
-        else {
+        } else {
             dummyArr = (JSON.parse(localStorage.getItem('products')));
             dummyArr.push(productsArray);
             localStorage.setItem('products', JSON.stringify(dummyArr))
@@ -47,8 +50,8 @@ export class Admin extends Component {
     inputTracker = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value })
-
     }
+
     resetForm = () => {
         const inputs = document.querySelectorAll(".form-input");
         inputs.forEach((input) => {
@@ -56,11 +59,24 @@ export class Admin extends Component {
         })
     }
 
+    deleteCard = () => {
+    //     let oldItemsArray = (JSON.parse(localStorage.getItem('products')));
+    //     console.log(oldItemsArray)
+    //     const newItemsArray = oldItemsArray.filter((data,index) => data.id !== index)
+    //     console.log(newItemsArray)
+
+        // console.log(newItemsArray)
+        // localStorage.setItem("products", JSON.stringify(newItemsArray))
+        // this.setState({arr: newItemsArray})
+        // console.log(this.state.arr)
+        // console.log(index)
+    }
+
     render() {
         return (
             <div className="admin-dashboard-container">
                 <h1>Admin Dashboard</h1>
-                <Card role="admin" />
+                <Card role="admin" deleteCard={this.deleteCard}/>
                 <div className="form-wrapper">
                     <h2>Create a product</h2>
                     <form className="admin-dashboard-form" onSubmit={this.editArray}>

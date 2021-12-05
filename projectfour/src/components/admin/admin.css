@@ -9,6 +9,7 @@
 .admin-dashboard-container {
     font-family: 'Zen Antique Soft', serif;
     margin: 2em;
+    /* width: 100%; */
 }
 
 .form-wrapper {
@@ -73,6 +74,7 @@
         display: block;
         margin: 0.2em auto;
         width: 100%;
+
     }
 }
 
