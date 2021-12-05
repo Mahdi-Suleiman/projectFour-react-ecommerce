@@ -55,12 +55,12 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {/* <Login />
-                <Registration /> */}
-                {/* <UserProfile />   */}
-                 {/* <Card plusCounter={this.plusCounter} />
-                <Admin counter={this.state.counter} totalPrice={this.state.totalPrice}/> 
-                <Cart />  */}
+                <Login />
+                <Registration />
+                <UserProfile />  
+                 {/* <Card plusCounter={this.plusCounter} /> */}
+                {/* <Admin counter={this.state.counter} totalPrice={this.state.totalPrice}/>  */}
+                {/* <Cart />  */}
                 <CheckoutButton totalPrice={this.state.totalPrice} counter={this.state.counter}/>
 
             </div>
