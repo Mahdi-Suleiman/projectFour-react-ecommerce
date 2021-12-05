@@ -51,6 +51,7 @@ export function UserProfile(props) {
             <Weather />
         </div>
     )
+
 }
 
 export default UserProfile
