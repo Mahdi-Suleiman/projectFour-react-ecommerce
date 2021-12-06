@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import AddToCart from '../cart/addtocart'
-import DeleteCard from './delete.card'
 import '../card/card.css'
-import ProductDetails from './product.details'
-import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
+import {NavLink } from 'react-router-dom';
 
 class CardContainer extends Component {
     constructor(props) {
@@ -16,7 +14,7 @@ class CardContainer extends Component {
     }
     render() {
         return (
-            <div className="card">
+            <div className="card-one">
                 <NavLink to="/productdetails" onClick={this.toProductDetails}>
                     <img src={`/${this.props.value.img}`} />
                     <h3>{this.props.value.title}</h3>
@@ -27,7 +25,7 @@ class CardContainer extends Component {
                 {
                     this.props.role === "user" ?
                         // <DeleteCard buttonValue="Add to cart" index={props.index} plusCounter={props.plusCounter} imgURL={props.value.img} role="user" /> 
-                        <AddToCart index={this.props.index} plusCounter={this.props.plusCounter} /> :
+                        <AddToCart index={this.props.index} plusCounter={this.props.plusCounter} handleAddToCart={this.props.handleAddToCart}/> :
                         // <DeleteCard buttonValue="Delete Item" index={props.index} imgURL={props.value.img} role="admin" />
                         <button className="add-to-cart-button" onClick={this.props.deleteCard}> Delete Card</button>
                 }

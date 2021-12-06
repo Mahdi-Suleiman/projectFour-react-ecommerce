@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { NavLink, Link } from 'react-router-dom';
+import Login from '../login/login';
 import Cart from './cart';
 import '../card/card.css'
 
@@ -6,31 +8,28 @@ export class AddToCart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            counter: 0
+
+            counter: 0,
+            loggedUser: localStorage.getItem('loggedUser'),
+            clicked: false
         }
     }
 
     addToCart = (index) => {
-        if (!localStorage.loggedUser) {
-            alert('go to login')
-        } else {
+        this.setState({ clicked: true })
+        if (this.state.loggedUser) {
+
             let productsArray;
             let firstPushArray = [];
             let cartArray = [];
             let flag = false;
             productsArray = JSON.parse(localStorage.getItem('products'))[index]
-            if (localStorage.getItem('cart')) {
+            if (localStorage.getItem('cart') && localStorage.getItem('cart').length !==0){
                 cartArray = JSON.parse(localStorage.getItem('cart'))
                 for (let i = 0; i < cartArray.length; i++) {
                     if (i === cartArray.length - 1) { flag = true }
                     if (cartArray[i].id === productsArray.id) {
                         cartArray[i].quantity += 1
-                        // let totalPrice = JSON.parse(localStorage.getItem('total'))
-                        // console.log("hello" + totalPrice)
-                        // totalPrice += cartArray[i].price;
-                        // console.log("hello" + totalPrice)
-
-                        // localStorage.setItem('total', JSON.stringify(totalPrice))
                         localStorage.setItem('cart', JSON.stringify(cartArray));
 
                         break;
@@ -43,10 +42,6 @@ export class AddToCart extends Component {
                 firstPushArray.push(JSON.parse(localStorage.getItem('products'))[index])
                 firstPushArray[0].quantity += 1
 
-                // totalPrice += firstPushArray[0].price;
-                // console.log("hello" + totalPrice)
-
-                // localStorage.setItem('total', JSON.stringify(totalPrice))
                 localStorage.setItem('cart', JSON.stringify(firstPushArray))
                 console.log(firstPushArray)
             }
@@ -56,7 +51,7 @@ export class AddToCart extends Component {
     render() {
         return (
             <div>
-                <button className="add-to-cart-button" onClick={() => { this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price) }}>Add To Cart</button>
+                <button className="add-to-cart-button" onClick={() => { this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price); this.props.handleAddToCart() }}>Add To Cart</button>
             </div>
         )
     }
