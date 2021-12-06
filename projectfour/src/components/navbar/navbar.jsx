@@ -9,6 +9,7 @@ export default function Navbar(props) {
             localStorage.removeItem('cart')
         }
         localStorage.removeItem('loggedUser')
+        props.handleLogOut();
     }
 
     return (
@@ -44,6 +45,7 @@ export default function Navbar(props) {
                                 </li>
                             </div> : <li class="nav-item">
                                 <Link class="nav-link " to="/signin">Login</Link>
+
                             </li>}
                         </ul>
 

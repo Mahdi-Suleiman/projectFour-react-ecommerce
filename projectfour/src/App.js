@@ -8,15 +8,15 @@ import Card from './components/card/card';
 import AddToCart from './components/cart/addtocart';
 import Cart from './components/cart/cart';
 import CheckoutButton from './components/cart/checkout.button';
-
 import Navbar from './components/navbar/navbar';
-import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Homepage from './components/homepage/homepage';
-import CartDisplay from './components/cart/cart.display';
+
 import ProductDetails from './components/card/product.details';
 import Footer from './components/footer/footer';
 import CartDisplay from './components/cart/cart.display';
 import About from './components/About Us/About';
+
 
 class App extends React.Component {
     constructor() {
@@ -62,20 +62,14 @@ class App extends React.Component {
         }
     }
 
-    minusCounter = (price) => {
-        if (JSON.parse(localStorage.getItem('loggedUser'))) {
-            // -1 to be solved
-            if (this.state.counter >= 0)
-                this.setState({ counter: this.state.counter - 1 })
-        }
-    }
-
     minusCounter = () => {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
+
             if (this.state.counter > 0)
                 this.setState({ counter: this.state.counter - 1 })
         }
     }
+
 
     handleAddToCart = () => {
         this.setState({ clicked: true })
@@ -137,6 +131,7 @@ class App extends React.Component {
                     <Route exact path="/productdetails" element={<ProductDetails plusCounter={this.plusCounter} handleAddToCart={this.handleAddToCart} />} />
                     <Route exact path="/admin" element={<Admin />} />
                     <Route exact path="/about" element={<About />} />
+
                 </Routes>
                 <Footer />
 

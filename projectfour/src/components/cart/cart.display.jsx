@@ -16,6 +16,7 @@ export default function CartDisplay(props) {
             <button onClick={() => { props.minusCounter(JSON.parse(localStorage.getItem('products'))); props.minusItem(props.indx) }}>-</button>
             <NavLink to="/checkout"><button style={{ backgroundColor: 'red' }} onClick> Proceed to checkout</button></NavLink>
             <button onClick={() => props.deleteItem(props.indx)}>Delete Item</button>
+
         </div>
     )
 }

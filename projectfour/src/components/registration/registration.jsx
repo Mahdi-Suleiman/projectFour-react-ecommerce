@@ -151,6 +151,7 @@ export class Registration extends Component {
             password: this.state.userPassword,
             repassword: this.state.userRePassword,
             orders: {}
+
         }
 
         let usersArray = []

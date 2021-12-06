@@ -29,6 +29,7 @@ export class Login extends Component {
                 this.props.handleLogIn();
                 if (this.props.userProfile)
                     this.props.handleSignIn();
+
                 alert("Thank You ...You Can Go To Home")
                 return (flag = false)
             }

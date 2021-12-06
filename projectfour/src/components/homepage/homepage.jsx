@@ -4,6 +4,7 @@ import Youtube from '../Api/Youtube/Youtube'
 import Testimonial from '../Testimonials/Testimonial'
 import CardContainer from '../card/card.containter'
 import Developers from '../developers/developers'
+
 export default function Homepage() {
     let storageProducts = JSON.parse(localStorage.getItem('products'))
     return (
@@ -13,6 +14,7 @@ export default function Homepage() {
             <Youtube />
             <Testimonial />
             <Developers />
+
         </div>
     )
 }
