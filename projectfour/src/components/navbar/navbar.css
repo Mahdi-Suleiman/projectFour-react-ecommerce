@@ -6,3 +6,17 @@ i {
   .CustomNav {
     margin-left: 0 !important ;
   }
+
+.CustomCartZ a {
+  display: inline !important;
+}
+
+.customContents {
+  display: contents
+}
+
+.customContents button {
+  border: 0;
+  background-color: transparent;
+  margin-top: 4px;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import AddToCart from '../cart/addtocart';
 import './product.details.css'
 class ProductDetails extends Component {
     constructor(props) {
@@ -16,7 +17,6 @@ class ProductDetails extends Component {
     }
     componentDidMount() {
         const selectedIndex = JSON.parse(localStorage.getItem("selectedProduct"));
-        // console.log(selectedProductFromLocalStorage)
         const products = JSON.parse(localStorage.getItem('products'));
         this.state.arr.map((data) => {
             if (data.id === selectedIndex) {
@@ -56,11 +56,13 @@ class ProductDetails extends Component {
                                 <textarea type="text" name="" id="" value={this.state.productLongDesc} readOnly ></textarea>
                             </label>
                         </div>
+
                     </form>
+                    <AddToCart index={this.state.productID} plusCounter={this.props.plusCounter} handleAddToCart={this.props.handleAddToCart} />
                 </div>
             </div>
         )
+
     }
 }
-
-export default ProductDetails;
+export default ProductDetails

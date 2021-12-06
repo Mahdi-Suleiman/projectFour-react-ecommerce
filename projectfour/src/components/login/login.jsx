@@ -26,6 +26,9 @@ export class Login extends Component {
         for (let i = 0; i < usersArray.length; i++) {
             if (this.state.userEmail === usersArray[i].email && this.state.userPassword === usersArray[i].password) {
                 localStorage.setItem('loggedUser', JSON.stringify(usersArray[i]))
+                this.props.handleLogIn();
+                if(this.props.userProfile)
+                this.props.handleSignIn();
                 alert("Thank You ...You Can Go To Home")
                 return (flag = false)
             }
