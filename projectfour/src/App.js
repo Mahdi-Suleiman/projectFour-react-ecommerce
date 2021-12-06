@@ -34,6 +34,10 @@ class App extends React.Component {
         }
     }
 
+    deleteCounter=()=>{
+        this.setState({counter:0})
+    }
+
     componentDidMount = () => {
         let sum = 0;
         this.counterQuantity &&
@@ -121,7 +125,7 @@ class App extends React.Component {
                     <Route exact path="/signin" element={<Login handleLogIn={this.handleLogIn} />} />
                     <Route exact path="/registration" element={<Registration />} />
                     <Route exact path="/cartdisplay" element={<Cart plusCounter={this.plusCounter} minusCounter={this.minusCounter} deleteItem={this.deleteItem} quantity={this.state.quantity} />} />
-                    <Route exact path="/checkout" element={<CheckoutButton />} />
+                    <Route exact path="/checkout" element={<CheckoutButton deleteCounter={this.deleteCounter}/>} />
                     <Route exact path="/productdetails" element={<ProductDetails plusCounter={this.plusCounter} handleAddToCart={this.handleAddToCart} />} />
                     <Route exact path="/admin" element={<Admin />} />
                 </Routes>
