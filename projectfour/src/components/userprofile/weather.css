@@ -1,0 +1,12 @@
+.Weather {
+    margin: 3em;
+    border: 1px #2d67ec solid;
+
+    width: max-content;
+    /* background: linear-gradient(rgb(24 132 220), rgb(255, 255, 255, 0.3)),
+        url("images.jpg"); */
+    background-size: cover;
+    border-radius: 0.5em;
+    padding: 0.5em;
+
+}

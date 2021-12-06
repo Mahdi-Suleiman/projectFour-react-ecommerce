@@ -1,0 +1,94 @@
+.titelProductPage{
+    color :rgb(151, 46, 90);
+    display: flex;
+    justify-content: center;
+
+}
+.cart111{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 3.125em 0;
+    font-family: 'Zen Antique Soft', serif;
+}
+.cartdis{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #e8e8ec;
+    width: 25em;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    margin:  12px 5px;
+
+}
+.counterquantity{
+    font-size: 18px;
+    margin:0 5px;
+}
+
+.quantitybtn{
+    display: flex;
+    flex-direction: row;
+    /* font-size: 20px; */
+
+}
+
+.btnpluss ,.btnplussbtn {
+        min-width: 40px;
+        height: 20px;
+        color: #fff;
+        padding: 5px -25px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 8px;
+        border: none;
+        background:rgb(133, 129, 129) !important;
+        box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+        display: flex;
+        justify-content: space-around;
+    }
+      .btnpluss:hover {
+        box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+        top: 1px;
+    }
+    
+
+        /* min-width: 10px;
+        /* height: 20px; */
+        /* color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 30px;
+        border: 2px solid rgb(146, 129, 218);
+        background: rgb(146, 129, 218) !important;
+        margin-top: 20px; */ 
+    
+    .btnpluss:hover ,.btnplussbtn:hover {
+        background: #fff !important;
+        color:rgb(133, 129, 129) ;
+        
+    }
+    .btnplussbtn{
+        padding: 15px 15px;
+        margin: 12px ;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media(max-width: 450px){
+        .cartdis{
+            width: 20px;
+        }
+    }

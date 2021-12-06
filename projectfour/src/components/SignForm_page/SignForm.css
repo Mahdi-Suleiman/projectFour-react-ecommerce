@@ -1,0 +1,223 @@
+
+.form {
+    font-family: 'Sriracha', cursive;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    word-spacing: 0.3rem;
+    letter-spacing: 0.2rem;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100%;
+    background:
+      linear-gradient(
+        120deg,
+        rgba(172, 114, 6, 0.8),
+        rgba(216, 218, 155, 0.8)
+      ),
+      url("https://wallpaperplay.com/walls/full/5/4/4/320513.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+  
+  .login-panel {
+      width: 50%;
+      height: 420px;
+      background-color: #fff;
+  }
+  
+  .login-panel div {
+      width: 50%;
+      height: 100%;
+      float: left;
+  }
+  
+  .left-side {
+      background:
+          linear-gradient(
+              120deg,
+              rgba(192, 112, 74, 0.3),
+              rgba(227, 233, 172, 0.8)
+           ), 
+           url("https://wallpaperplay.com/walls/full/5/4/4/320513.jpg"
+      );
+      background-size: cover;
+  }
+  
+  .right-side {
+      padding: 50px 25px;
+      box-sizing: border-box;
+  }
+  
+  .right-side h1 {
+      text-transform: uppercase;
+      margin: 0;
+  }
+  
+  .right-side p {
+      font-size: 10px;
+      color: #888;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-transform: lowercase;
+  }
+  
+  .right-side input {
+      margin: 10px 0;
+      padding: 2.5px 0;
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid #888;
+  }
+  
+  input.submit-btn,button.btn-sinup {
+      border: 2px solid #000;
+      border-radius: 15px;
+      width: 100px;
+      background-color: transparent;
+      font-size: 14px;
+      font-weight: 900;
+      padding: 5px;
+  }
+  input.submit-btn:hover ,button.btn-sinup:hover {
+    background:
+            linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  form p {
+      cursor:pointer;
+      
+  }
+
+  @media only screen and (max-width: 1100px) {
+    .login-panel {
+      width: 70%;
+      height: 420px;
+      background-color: #fff;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    .login-panel {
+      width: 70%;
+      height: 500px;
+      background-color: #fff;
+    }
+    .login-panel div:first-of-type {
+      width: 100%;
+      height: 100px;
+    }
+    .login-panel div {
+      width: 100%;
+      height: 400px;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .login-panel {
+      width: 90%;
+      height: 520px;
+      background-color: #fff;
+    }
+    .login-panel div:first-of-type {
+      width: 100%;
+      height: 100px;
+    }
+    .login-panel div {
+      width: 100%;
+      height: 400px;
+    }
+  }
+  
+  *:focus {
+      outline: none;
+  }
+  /* Margin */
+
+.my-1 {
+    margin: 1rem 0 ;
+}
+.my-2{
+    margin: 1.5rem 0 ;
+}
+.my-3{
+    margin: 2rem 0 ;
+  
+}
+.my-4{
+    margin: 3rem 0 ;
+    font-size: 2.5em;
+
+}
+.my-5{
+    margin: 4rem 0 ;
+  
+}
+
+.m-1 {
+    margin: 1rem  ;
+}
+.m-2{
+    margin: 1.5rem  ;
+}
+.m-3{
+    margin: 2rem ;
+  
+}
+.m-4{
+    margin: 3rem ;
+
+}
+.m-5{
+    margin: 4rem ;
+  
+}
+
+/* Padding */
+
+.py-1 {
+    padding: 1rem 0 ;
+}
+.py-2{
+    padding: 1.5rem 0 ;
+}
+.py-3{
+    padding: 2rem 0 ;
+  
+}
+.py-4{
+    padding: 3rem 0 ;
+
+}
+.py-5{
+    padding: 4rem 0 ;
+  
+}
+
+.p-1 {
+    padding: 1rem  ;
+}
+.p-2{
+    padding: 1.5rem  ;
+}
+.p-3{
+    padding: 2rem  ;
+}
+.p-4{
+    padding: 3rem  ;
+
+}
+.p-5{
+    padding: 4rem  ;
+}
+.errorMsg {
+    color: #cc0000;
+    font-size: 1.2em;
+    max-height: 1rem;
+   /*  margin-bottom: 2rem; */
+  }
+
