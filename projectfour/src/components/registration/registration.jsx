@@ -180,6 +180,7 @@ export class Registration extends Component {
                 this.setState()
             }
 
+            }
         else {
             usersArray.push(usersObject);
             localStorage.setItem('users', JSON.stringify(usersArray))
@@ -194,7 +195,7 @@ export class Registration extends Component {
         //     usersArray.push(usersObject);
         //     localStorage.setItem('users', JSON.stringify(usersArray))
         //     this.setState()
-        // }
+        
     }
 
     render() {
