@@ -142,7 +142,7 @@ export class Registration extends Component {
     }
 
     registrationChecker = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         let usersObject = {
             fname: this.state.firstName,
@@ -179,6 +179,11 @@ export class Registration extends Component {
                 localStorage.setItem('users', JSON.stringify(usersArray))
                 this.setState()
             }
+
+        else {
+            usersArray.push(usersObject);
+            localStorage.setItem('users', JSON.stringify(usersArray))
+
         }
         // if (JSON.parse(localStorage.getItem('users'))) {
         //     usersArray = (JSON.parse(localStorage.getItem('users')))
@@ -199,7 +204,7 @@ export class Registration extends Component {
                     <div className="header">
                         <h2>Create Account</h2>
                     </div>
-                    <form id="form" className="form" onSubmit={this.registrationChecker} >
+                    <form id="form" className="form" onSubmit={this.registrationChecker}>
                         <div className="form-control">
 
                             <label htmlFor="firstName">Firstname</label>
