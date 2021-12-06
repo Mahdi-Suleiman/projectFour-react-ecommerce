@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.all-profile {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Inter', sans-serif;
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* text-align: center; */
+}
+
+.profile-container h2 {
+    margin-bottom: 0.5em;
+}
+
+.profile-container {
+    display: block;
+    margin: 2em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+    width: 60%;
+    /* margin: 1em; */
+    padding: 2em;
+    border-radius: 0.5em;
+}
+
+.profile-container input {
+    display: block;
+    width: 80%;
+    height: auto;
+    padding: 0.5em;
+    border: 1px solid #ced4da;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+
+}
+
+.user-info {
+    margin: 1em 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+
+/* <Table Part> */
+
+#orders {
+    text-align: center;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+}
+
+#orders td, #orders th {
+    border: 1px solid #ddd;
+    padding: 0.5em;
+}
+
+#orders tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#orders tr:hover {
+    background-color: #ddd;
+}
+
+#orders th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    /*ced4da*/
+    color: white;
+}
+
+/* </Table Part> */
+
