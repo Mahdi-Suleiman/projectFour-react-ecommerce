@@ -12,10 +12,13 @@ export default class Card extends React.Component {
         super(props);
         this.state = {
             loggedIn: JSON.parse(localStorage.getItem('loggedUser')),
+            clicked: false,
+
             localStorageData: JSON.parse(localStorage.getItem('products'))
 
         }
     }
+
 
     render() {
 

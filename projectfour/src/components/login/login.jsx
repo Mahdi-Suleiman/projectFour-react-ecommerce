@@ -27,8 +27,9 @@ export class Login extends Component {
             if (this.state.userEmail === usersArray[i].email && this.state.userPassword === usersArray[i].password) {
                 localStorage.setItem('loggedUser', JSON.stringify(usersArray[i]))
                 this.props.handleLogIn();
-                if(this.props.userProfile)
-                this.props.handleSignIn();
+                if (this.props.userProfile)
+                    this.props.handleSignIn();
+
                 alert("Thank You ...You Can Go To Home")
                 return (flag = false)
             }
@@ -55,7 +56,7 @@ export class Login extends Component {
                     </div>
                     <form id="form" className="form" onSubmit={this.loginValidation}>
                         <div className="form-control">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">Email</label>
                             <input type="text" id="username" name="userEmail" value={this.state.userEmail} onChange={this.loginFieldTracker} />
                             <i className="fas fa-check-circle"></i>
                             <i className="fas fa-exclamation-circle"></i>
@@ -70,7 +71,7 @@ export class Login extends Component {
                         </div>
                         <button type="submit" className="log-btn">Sign in</button>
                         <p className="font">Don't have an account?</p>
-                        <NavLink to="/registration"><button type="button" className="reg-btn" ></button></NavLink>
+                        <NavLink to="/registration"><button type="button" className="reg-btn" >Register</button></NavLink>
                     </form>
                 </div>
             </main>

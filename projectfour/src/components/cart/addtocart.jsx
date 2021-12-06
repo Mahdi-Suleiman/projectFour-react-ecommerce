@@ -24,7 +24,8 @@ export class AddToCart extends Component {
             let cartArray = [];
             let flag = false;
             productsArray = JSON.parse(localStorage.getItem('products'))[index]
-            if (localStorage.getItem('cart') && localStorage.getItem('cart').length !==0){
+            if (localStorage.getItem('cart') && localStorage.getItem('cart').length !== 0) {
+
                 cartArray = JSON.parse(localStorage.getItem('cart'))
                 for (let i = 0; i < cartArray.length; i++) {
                     if (i === cartArray.length - 1) { flag = true }
@@ -51,7 +52,9 @@ export class AddToCart extends Component {
     render() {
         return (
             <div>
+
                 <button className="add-to-cart-button" onClick={() => { this.addToCart(this.props.index); this.props.plusCounter(JSON.parse(localStorage.getItem('products'))[this.props.index].price); this.props.handleAddToCart() }}>Add To Cart</button>
+
             </div>
         )
     }

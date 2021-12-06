@@ -1,0 +1,56 @@
+.div-container {
+    display:flex;
+    flex-direction: row;
+    width:80%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout-table {
+    border-collapse: collapse;
+    width:100%;
+}
+
+.checkout-table2 {
+    
+    border-collapse: collapse;
+    width:100%;
+}
+
+.first-div {
+    width:45%;
+    border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.second-div {
+    width:50%;
+    border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.heading {
+    text-align: center;
+    width:80%;
+    margin:2em auto;
+    border-bottom:1px red solid;
+    padding:1em;
+    font-size:2em;
+}
+
+.table-heading {
+    padding:2em;
+    border-bottom: 1px solid #f0f0f0;
+  background-color: #f7f7f7;
+}
+
+.useless-padding {
+    padding: 1em 0 0 2em;
+}
+.button-order{
+    margin: 1em 0 0 2em;
+
+
+
+}
