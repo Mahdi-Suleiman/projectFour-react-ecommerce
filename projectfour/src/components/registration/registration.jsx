@@ -177,24 +177,17 @@ export class Registration extends Component {
             else {
                 usersArray.push(usersObject);
                 localStorage.setItem('users', JSON.stringify(usersArray))
-                this.setState()
             }
-
-        else {
-            usersArray.push(usersObject);
-            localStorage.setItem('users', JSON.stringify(usersArray))
-
+            // if (JSON.parse(localStorage.getItem('users'))) {
+            //     usersArray = (JSON.parse(localStorage.getItem('users')))
+            //     usersArray.push(usersObject)
+            //     localStorage.setItem('users', JSON.stringify(usersArray))
+            // }
+            // else {
+            //     usersArray.push(usersObject);
+            //     localStorage.setItem('users', JSON.stringify(usersArray))
+            //     this.setState()
         }
-        // if (JSON.parse(localStorage.getItem('users'))) {
-        //     usersArray = (JSON.parse(localStorage.getItem('users')))
-        //     usersArray.push(usersObject)
-        //     localStorage.setItem('users', JSON.stringify(usersArray))
-        // }
-        // else {
-        //     usersArray.push(usersObject);
-        //     localStorage.setItem('users', JSON.stringify(usersArray))
-        //     this.setState()
-        // }
     }
 
     render() {
