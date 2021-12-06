@@ -47,7 +47,7 @@ export function CheckoutButton(props) {
                 quantity = data.quantity;
                 title = data.title
             }
-
+// this is the up to date commit
         })
     }
     return (
