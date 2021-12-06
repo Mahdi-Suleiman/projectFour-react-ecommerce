@@ -14,7 +14,7 @@ class CardContainer extends Component {
     }
     render() {
         return (
-            <div className="card">
+            <div className="card-one">
                 <NavLink to="/productdetails" onClick={this.toProductDetails}>
                     <img src={`/${this.props.value.img}`} />
                     <h3>{this.props.value.title}</h3>

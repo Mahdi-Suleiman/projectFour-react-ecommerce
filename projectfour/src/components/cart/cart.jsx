@@ -13,41 +13,30 @@ export class Cart extends Component {
 
     plusItem = (id)=> {
         let idIndex;
-        let indexArray = this.state.quantity;
+        let indexArray = this.props.quantity;
+        console.log(this.props.quantity)
         for(let i=0;i<indexArray.length;i++){
-            if(id===indexArray[i].id){
+            if(id===i){
                 idIndex = i;
                 break;
             }
         }
         indexArray[idIndex].quantity +=1;
-        let totalPrice = JSON.parse(localStorage.getItem('total'))
-        totalPrice += indexArray[idIndex].price
-        console.log(totalPrice)
-        console.log(typeof(totalPrice))
-        localStorage.setItem('total',JSON.stringify(totalPrice))
         localStorage.setItem('cart', JSON.stringify(indexArray))
         this.setState({quantity: indexArray})
     }
 
     minusItem = (id) => {
-        console.log(this.state.quantity)
         let idIndex;
-        let indexArray = this.state.quantity;
-        console.log(this.props.index)
+        let indexArray = this.props.quantity;
         for(let i=0;i<indexArray.length;i++){
-            if(id===indexArray[i].id){
+            if(id===i){
                 idIndex = i;
                 break;
             }
         }
         if(indexArray[idIndex].quantity!=0){
         indexArray[idIndex].quantity -=1;
-        console.log('he' ,indexArray[idIndex].quantity)
-        console.log('he',this.state.quantity)
-        let totalPrice = JSON.parse(localStorage.getItem('total'))
-        totalPrice -= indexArray[idIndex].price
-        localStorage.setItem('total',JSON.stringify(totalPrice))
         localStorage.setItem('cart', JSON.stringify(indexArray))
         this.setState({quantity: indexArray}) 
         }
@@ -58,9 +47,9 @@ export class Cart extends Component {
         return (
             <div>
                 {localStorage.getItem('cart') ? 
-                JSON.parse(localStorage.getItem('cart')).map(data=>
+                JSON.parse(localStorage.getItem('cart')).map((data,indx)=>
                         
-                         <CartDisplay img={data.img} title={data.title} shortDesc={data.shortDesc} price={data.price} quantity={data.quantity} id={data.id} plusItem={this.plusItem} minusItem={this.minusItem} plusCounter={this.props.plusCounter} minusCounter={this.props.minusCounter} deleteItem={this.props.deleteItem}/>) : <h1>Your cart is empty</h1>}
+                         <CartDisplay img={data.img} title={data.title} indx={indx} shortDesc={data.shortDesc} price={data.price} quantity={data.quantity} id={data.id} plusItem={this.plusItem} minusItem={this.minusItem} plusCounter={this.props.plusCounter} minusCounter={this.props.minusCounter} deleteItem={this.props.deleteItem}/>) : <h1>Your cart is empty</h1>}
             </div>
         )
        

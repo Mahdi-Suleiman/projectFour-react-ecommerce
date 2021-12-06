@@ -34,16 +34,17 @@ export class Admin extends Component {
             quantity: this.state.productQuantity,
             id: this.state.productID
         }
-        if (localStorage.getItem('products') === null) {
+        if (!localStorage.getItem('products')) {
             dummyArr.push(productsArray)
-            this.setState({ arr: dummyArr })
             localStorage.setItem('products', JSON.stringify(dummyArr))
+            this.setState({ arr: JSON.parse(localStorage.getItem('products')) })
         } else {
             dummyArr = (JSON.parse(localStorage.getItem('products')));
             dummyArr.push(productsArray);
             localStorage.setItem('products', JSON.stringify(dummyArr))
             this.setState({ arr: dummyArr })
         }
+        this.setState({arr:JSON.parse(localStorage.getItem('products'))});
         this.resetForm();
     }
 
@@ -76,7 +77,7 @@ export class Admin extends Component {
         return (
             <div className="admin-dashboard-container">
                 <h1>Admin Dashboard</h1>
-                <Card role="admin" deleteCard={this.deleteCard} />
+                <Card role="admin" cards={this.state.arr} deleteCard={this.deleteCard} />
                 <div className="form-wrapper">
                     <h2>Create a product</h2>
                     <form className="admin-dashboard-form" onSubmit={this.editArray}>

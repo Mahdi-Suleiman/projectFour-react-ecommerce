@@ -17,7 +17,6 @@ class ProductDetails extends Component {
     }
     componentDidMount() {
         const selectedIndex = JSON.parse(localStorage.getItem("selectedProduct"));
-        // console.log(selectedProductFromLocalStorage)
         const products = JSON.parse(localStorage.getItem('products'));
         this.state.arr.map((data) => {
             if (data.id === selectedIndex) {

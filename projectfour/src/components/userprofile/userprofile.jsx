@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Login from '../login/login';
 import './userprofile.css'
 import Weather from './weather';
 
@@ -8,13 +9,15 @@ class UserProfile extends Component {
         this.state = {
             uiavatars: '',
             avatarURL: '',
-            loggedUser: ''
+            loggedUser: JSON.parse(localStorage.getItem('loggedUser'))
         };
     }
     componentDidMount() {
+        if(this.state.loggedUser){
         const uiavatars = require("ui-avatars");
         const avatarURL = uiavatars.generateAvatar({
             uppercase: true,
+            
             name: `${JSON.parse(localStorage.getItem('loggedUser')).fname} ${JSON.parse(localStorage.getItem('loggedUser')).lname}`,
             background: "64b5f6",
             fontsize: 0.5,
@@ -30,28 +33,14 @@ class UserProfile extends Component {
             loggedUser: loggedUser
         })
     }
-
-    renderTableData = () => {
-        // return this.state.students.map((student, index) => {
-        //     const { id, name, age, email } = student //destructuring
-        //     return (
-        //         <tr key={id}>
-        //             <td>{id}</td>
-        //             <td>{name}</td>
-        //             <td>{age}</td>
-        //             <td>{email}</td>
-        //         </tr>
-        //     )
-        // })
     }
 
-    renderTableHeader = () => {
-        // let header = Object.keys(this.state.students[0])
-        // return header.map((key, index) => {
-        //     return <th key={index}>{key.toUpperCase()}</th>
-        // })
+    handleSignIn = ()=>{
+        this.setState({loggedUser:JSON.parse(localStorage.getItem('loggedUser'))})
     }
+
     render() {
+        if(this.state.loggedUser)
         return (
             <div className="all-profile">
                 <div className="profile-container">
@@ -79,16 +68,29 @@ class UserProfile extends Component {
                             </label>
                             <label> Phone number
                                 <input type="text" name="" id="" value="" readOnly />
+                                {this.props.price.map(data=>{
+                                    return(
+                                    <h1>{data}</h1>
+                                )})}
+                                {this.props.title.map(data=>{
+                                    return(
+                                    <h1>{data}</h1>
+                                )})}
+                                {this.props.quantity.map(data=>{
+                                    return(
+                                    <h1>{data}</h1>
+                                )})}
+
                             </label>
                         </div>
                     </form>
                 </div>
-
                 <div className="orders-wrapper">
                     <table id='orders'>
                         <tbody>
-                            <tr>{this.renderTableHeader()}</tr>
-                            {this.renderTableData()}
+                            <tr></tr>
+
+                            <button onClick={this.props.renderTableData}> click me</button>
                         </tbody>
                     </table>
                 </div>
@@ -97,6 +99,9 @@ class UserProfile extends Component {
                 <Weather />
             </div>
         )
+        else
+        return (<Login userProfile={true} handleSignIn={this.handleSignIn} handleLogIn={this.props.handleLogIn}/>)
+        
     }
 
 }
