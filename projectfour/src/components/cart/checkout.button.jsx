@@ -16,6 +16,7 @@ export function CheckoutButton(props) {
         userCartArray.push(JSON.parse(localStorage.getItem('loggedUser')))
         const loggedUserEmail = userCartArray[0].email
         const allUsersArray = JSON.parse(localStorage.getItem('users'))
+        if(allUsersArray)
         for (let i = 0; i < allUsersArray.length; i++) {
             console.log(allUsersArray[i].email)
             if (allUsersArray[i].email === loggedUserEmail) {
@@ -29,7 +30,7 @@ export function CheckoutButton(props) {
         console.log(userQuantity)
         localStorage.setItem('products', JSON.stringify(userQuantity))
         localStorage.setItem('users', JSON.stringify(allUsersArray))
-
+        props.deleteCounter();
         localStorage.removeItem('cart')
     }
     let tottttal = 0;
