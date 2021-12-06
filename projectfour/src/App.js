@@ -8,9 +8,11 @@ import Card from './components/card/card';
 import AddToCart from './components/cart/addtocart';
 import Cart from './components/cart/cart';
 import CheckoutButton from './components/cart/checkout.button';
+
 import Navbar from './components/navbar/navbar';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
 import Homepage from './components/homepage/homepage';
+import CartDisplay from './components/cart/cart.display';
 import ProductDetails from './components/card/product.details';
 import Footer from './components/footer/footer';
 import CartDisplay from './components/cart/cart.display';
@@ -57,6 +59,14 @@ class App extends React.Component {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
             this.setState({ counter: this.state.counter + 1 })
 
+        }
+    }
+
+    minusCounter = (price) => {
+        if (JSON.parse(localStorage.getItem('loggedUser'))) {
+            // -1 to be solved
+            if (this.state.counter >= 0)
+                this.setState({ counter: this.state.counter - 1 })
         }
     }
 
@@ -113,6 +123,7 @@ class App extends React.Component {
 
     render() {
         return (
+
             <div>
                 <Navbar loggedIn={this.state.loggedIn} handleLogOut={this.handleLogOut} counter={this.state.counter} />
                 <Routes>

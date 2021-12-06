@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 
 export default function Navbar(props) {
 
-    const handleLogout = ()=>{
-        if(localStorage.getItem('cart')){
+    const handleLogout = () => {
+        if (localStorage.getItem('cart')) {
             localStorage.removeItem('cart')
         }
         localStorage.removeItem('loggedUser')
@@ -29,19 +29,19 @@ export default function Navbar(props) {
                                 <Link class="nav-link" to="/card">Products</Link>
                             </li>
                             <li class="nav-item">
-                            <Link class="nav-link" to="/card">Profile</Link>
+                                <Link class="nav-link" to="/card">Profile</Link>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-                            
+
                             {localStorage.getItem('loggedUser') ? <div className="customContents">
-                            <li class="nav-item CustomCartZ">
-                                <Link class="nav-link" to="/signin"><button className="logNav" onClick={handleLogout}>Logout</button></Link>
-                            </li>
-                            <li class="nav-item CustomCartZ">
-                                <Link className="nav-link" to="/cartdisplay"><i className="fas fa-shopping-cart CustomCartZ"></i></Link>
-                                <span className="item-count CustomCartZ">{props.counter}</span>
-                            </li>
+                                <li class="nav-item CustomCartZ">
+                                    <Link class="nav-link" to="/signin"><button className="logNav" onClick={handleLogout}>Logout</button></Link>
+                                </li>
+                                <li class="nav-item CustomCartZ">
+                                    <Link className="nav-link" to="/cartdisplay"><i className="fas fa-shopping-cart CustomCartZ"></i></Link>
+                                    <span className="item-count CustomCartZ">{props.counter}</span>
+                                </li>
                             </div> : <li class="nav-item">
                                 <Link class="nav-link " to="/signin">Login</Link>
                             </li>}

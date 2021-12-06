@@ -18,9 +18,12 @@ export function CheckoutButton(props) {
         const allUsersArray = JSON.parse(localStorage.getItem('users'))
         for (let i = 0; i < allUsersArray.length; i++) {
             console.log(allUsersArray[i].email)
+            console.log(loggedUserEmail)
             if (allUsersArray[i].email === loggedUserEmail) {
-                allUsersArray[i].orders.push(cartArray);
+                allUsersArray[i].orders[`i`] = cartArray;
+
             }
+
         }
         for (let i = 0; i < userQuantity.length; i++) {
             userQuantity[i].quantity = 0;
