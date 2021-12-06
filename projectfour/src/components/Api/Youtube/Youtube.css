@@ -31,9 +31,9 @@
 .VideoContainer iframe {
     display: inline-block;
     margin: 1rem;
-    width: 40em;
-    height: 30em;
-  
+    width: 25em;
+    height: 20em;
+  border-radius: 20px;
 
 }
 h1 {

@@ -1,0 +1,16 @@
+
+.aboutUs{
+    width: 90%;
+    margin: 0 auto;
+ margin-bottom: 5em;
+}
+.aboutUs .headerr{
+    text-align: center;
+    color: #b11616;
+    margin-top: 2em;
+}
+p{
+    text-align: justify;
+    color: black;
+}
+

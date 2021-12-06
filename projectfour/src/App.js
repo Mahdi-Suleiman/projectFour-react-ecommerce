@@ -14,6 +14,7 @@ import Homepage from './components/homepage/homepage';
 
 import ProductDetails from './components/card/product.details';
 import Footer from './components/footer/footer';
+import About from './components/About Us/About';
 import CartDisplay from './components/cart/cart.display';
 class App extends React.Component {
     constructor() {
@@ -124,6 +125,11 @@ class App extends React.Component {
                     <Route exact path="/checkout" element={<CheckoutButton />} />
                     <Route exact path="/productdetails" element={<ProductDetails plusCounter={this.plusCounter} handleAddToCart={this.handleAddToCart} />} />
                     <Route exact path="/admin" element={<Admin />} />
+
+
+                    <Route exact path="/about" element={<About />} />
+
+
                 </Routes>
                 <Footer />
 
