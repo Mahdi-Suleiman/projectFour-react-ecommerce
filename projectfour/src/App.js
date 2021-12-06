@@ -15,6 +15,9 @@ import Homepage from './components/homepage/homepage';
 import ProductDetails from './components/card/product.details';
 import Footer from './components/footer/footer';
 import CartDisplay from './components/cart/cart.display';
+import About from './components/About Us/About';
+
+
 class App extends React.Component {
     constructor() {
         super();
@@ -65,10 +68,12 @@ class App extends React.Component {
 
     minusCounter = () => {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
+
             if (this.state.counter > 0)
                 this.setState({ counter: this.state.counter - 1 })
         }
     }
+
 
     handleAddToCart = () => {
         this.setState({ clicked: true })
@@ -116,6 +121,7 @@ class App extends React.Component {
 
     render() {
         return (
+
             <div>
                 <Navbar loggedIn={this.state.loggedIn} handleLogOut={this.handleLogOut} counter={this.state.counter} />
                 <Routes>
@@ -128,6 +134,8 @@ class App extends React.Component {
                     <Route exact path="/checkout" element={<CheckoutButton deleteCounter={this.deleteCounter}/>} />
                     <Route exact path="/productdetails" element={<ProductDetails plusCounter={this.plusCounter} handleAddToCart={this.handleAddToCart} />} />
                     <Route exact path="/admin" element={<Admin />} />
+                    <Route exact path="/about" element={<About />} />
+
                 </Routes>
                 <Footer />
 

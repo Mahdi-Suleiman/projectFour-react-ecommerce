@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin-dashboard-container {
+    font-family: 'Zen Antique Soft', serif;
+    /* margin: 2em; */
+    padding: 2em;
+    /* width: 100%; */
+}
+
+.form-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-wrapper h2 {
+    margin: 0.5em;
+
+}
+
+.admin-dashboard-form {
+    width: 60%;
+    text-align: center;
+    border-radius: 1em;
+    padding: 0.5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard-form input, textarea {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 1em;
+    margin: 1em 0;
+    border: none;
+    border-bottom: #2d67ec 1.5px solid;
+}
+
+
+.admin-dashboard-form * {
+    text-align: center;
+}
+
+#add-new-product-button {
+    display: inline-block;
+    padding: 1em;
+    border: none;
+    border-radius: 2em;
+    color: white;
+    font-size: 1.1em;
+    margin-top: 1em;
+    width: 40%;
+    letter-spacing: .1em;
+    outline: none;
+    /* background: linear-gradient(135deg, #753370 0%, #298096 100%); */
+    background-color: #2d67ec;
+}
+
+#add-new-product-button:hover {
+    filter: brightness(80%);
+    cursor: pointer;
+}
+
+
+@media all and (max-width:1000px) {
+    .admin-dashboard-form {
+        width: 80%;
+    }
+
+    #add-new-product-button {
+        margin: 0.2em auto;
+        width: 100%;
+        font-size: 0.7em;
+        /* padding: unset; */
+
+    }
+}
+
+@media all and (max-width:400px) {
+    .admin-dashboard-form {
+        width: 100%;
+    }
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    /* border: 1px solid #ccc; */
+    border-bottom: #2d67ec 1.5px solid;
+    display: block;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}

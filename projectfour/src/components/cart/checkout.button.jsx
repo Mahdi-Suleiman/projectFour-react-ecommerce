@@ -20,6 +20,7 @@ export function CheckoutButton(props) {
         for (let i = 0; i < allUsersArray.length; i++) {
             console.log(allUsersArray[i].email)
             if (allUsersArray[i].email === loggedUserEmail) {
+
                 allUsersArray[i].orders.push(cartArray);
             }
         }
@@ -91,6 +92,7 @@ export function CheckoutButton(props) {
                             <div colspan='2' class='useless-padding'>
                                 <label>Phone number</label><br />
                                 <input type='text'></input>
+
                             </div>
 
 
@@ -120,6 +122,11 @@ export function CheckoutButton(props) {
                                 <p>Subtotal</p>
                             </div>
 
+                            <div class='useless-padding'>
+                                <p> {title}</p>
+                                <p> {price}</p>
+                                <p>{quantity}</p>
+                            </div>
 
 
                             <div class='useless-padding'>
@@ -128,6 +135,13 @@ export function CheckoutButton(props) {
                                 <p>{quantity}</p>
                             </div>
 
+
+                            <div class='useless-padding'>
+                                <p>Total</p>
+                            </div>
+                            <div class='useless-padding'>
+                                <p>{tottttal}$</p>
+                            </div>
 
 
 
@@ -140,6 +154,7 @@ export function CheckoutButton(props) {
 
 
                             <div colspan='2' class='useless-padding'>
+
                                 <p>Cash on delivery</p>
                             </div>
 
