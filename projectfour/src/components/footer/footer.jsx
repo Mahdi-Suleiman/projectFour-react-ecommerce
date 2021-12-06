@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css"
+import { Link } from 'react-router-dom'
 function Footer() {
     return (
         <footer>
@@ -30,7 +31,7 @@ function Footer() {
                                 <span className="footer-title">PC Builders</span>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">About us</a>
+                                <Link to="/about" className="nav-link" > About us</Link>
                             </li>
                             {/* <li className="nav-item">
                                 <a className="nav-link" href="#">Job postings</a>
