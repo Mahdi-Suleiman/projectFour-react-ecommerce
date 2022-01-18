@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function Footer() {
     return (
         <footer>
-            <div className="container">
-                <div className="row">
+            <div className="container con2">
+                <div className="row customRowMahdi">
                     {/* <div className="col-md-4 footer-column">
                         <ul className="nav flex-column">
                             <li className="nav-item">
@@ -41,7 +41,7 @@ function Footer() {
                             </li> */}
                         </ul>
                     </div>
-                    <div className="col-md-4 footer-column"></div>
+                    {/* <div className="col-md-4 footer-column"></div> */}
                     {/* empty div */}
 
                     <div className="col-md-4 footer-column">

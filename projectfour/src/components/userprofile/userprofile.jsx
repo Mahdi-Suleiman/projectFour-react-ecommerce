@@ -68,21 +68,25 @@ class UserProfile extends Component {
                             </label>
                             <label> Phone number
                                 <input type="text" name="" id="" value="" readOnly />
+                                <div className="cont-data">
                                 {this.props.price.map(data=>{
                                     return(
-                                    <h1>{data}</h1>
+                                    <h3>{data}</h3>
                                 )})}
                                 {this.props.title.map(data=>{
                                     return(
-                                    <h1>{data}</h1>
+                                    <h3>{data}</h3>
                                 )})}
                                 {this.props.quantity.map(data=>{
                                     return(
-                                    <h1>{data}</h1>
+                                    <h3>{data}</h3>
                                 )})}
+    </div>
+                            </label><br/>
+                        <button onClick={this.props.renderTableData} className="order-btn"> click me</button>
 
-                            </label>
                         </div>
+
                     </form>
                 </div>
                 <div className="orders-wrapper">
@@ -90,7 +94,6 @@ class UserProfile extends Component {
                         <tbody>
                             <tr></tr>
 
-                            <button onClick={this.props.renderTableData}> click me</button>
                         </tbody>
                     </table>
                 </div>

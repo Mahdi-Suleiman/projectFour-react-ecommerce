@@ -20,3 +20,7 @@
             margin: 0 auto;
       }
 } */
+
+.customDevelopersContainer .row {
+      margin-right: 0px !important;
+}

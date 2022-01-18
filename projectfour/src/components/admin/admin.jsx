@@ -44,7 +44,7 @@ export class Admin extends Component {
             localStorage.setItem('products', JSON.stringify(dummyArr))
             this.setState({ arr: dummyArr })
         }
-        this.setState({arr:JSON.parse(localStorage.getItem('products'))});
+        this.setState({ arr: JSON.parse(localStorage.getItem('products')) });
         this.resetForm();
     }
 
@@ -88,7 +88,7 @@ export class Admin extends Component {
                         <input type="text" name="productTitle" className="form-input" placeholder="Product title" value={this.state.productTitle} onChange={this.inputTracker} required />
                         <input type="text" name="productShortDesc" className="form-input" placeholder="short description" value={this.state.productShortDesc} onChange={this.inputTracker} required />
                         <input type="text" name="productPrice" className="form-input" placeholder="Product price" value={this.state.productPrice} onChange={this.inputTracker} required />
-                        <textarea type="text" name="productLongDesc" className="form-input" placeholder="Long description" value={this.state.productLongDesc} onChange={this.inputTracker} required ></textarea>
+                        <textarea type="text" id="longDesc" name="productLongDesc" className="form-input" placeholder="Long description" value={this.state.productLongDesc} onChange={this.inputTracker} required ></textarea>
                         <input type="text" name="productID" className="form-input" placeholder="ID" value={this.state.productID} onChange={this.inputTracker} />
                         <button id="add-new-product-button">Add New Product</button>
                     </form>

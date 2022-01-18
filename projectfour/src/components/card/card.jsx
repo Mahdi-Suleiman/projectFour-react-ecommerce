@@ -1,11 +1,7 @@
 import React from 'react'
 import CardContainer from './card.containter'
 import './card.css'
-
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
-
-
-
 
 export default class Card extends React.Component {
     constructor(props) {
@@ -15,7 +11,6 @@ export default class Card extends React.Component {
             clicked: false,
 
             localStorageData: JSON.parse(localStorage.getItem('products'))
-
         }
     }
 
@@ -27,8 +22,7 @@ export default class Card extends React.Component {
                 <div>
                     <h1 className="titlecard">Shop</h1>
                     <div className="card-container">
-
-                        {this.props.cards&&
+                        {this.props.cards &&
                             this.props.cards.map((data, index) => {
                                 return (
 
@@ -36,8 +30,8 @@ export default class Card extends React.Component {
                                 )
                             })
                         }
-                        {!this.props.cards&&
-                        <h1>No Products Added Yet !</h1>
+                        {!this.props.cards &&
+                            <h1>No Products Added Yet !</h1>
 
                         }
                     </div>

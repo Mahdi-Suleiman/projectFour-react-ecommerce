@@ -21,6 +21,20 @@
     margin-bottom: 0.5em;
 }
 
+.order-btn {
+    background-color: #1877F2;
+    color:white;
+    border-radius: 5%;
+    width:40%;
+    padding:0.4em 0.7em;
+}
+
+.cont-data {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:1em;
+}
+
 .profile-container {
     display: block;
     margin: 2em;

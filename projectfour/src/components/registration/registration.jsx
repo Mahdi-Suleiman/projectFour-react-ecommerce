@@ -129,13 +129,13 @@ export class Registration extends Component {
     setErrorFor = (input, message) => {
         const formControl = input.parentElement;
         const small = formControl.querySelector('small');
-        formControl.className = 'form-control error';
+        formControl.className = 'formControl error';
         small.innerText = message;
     }
 
     setSuccessFor = (input) => {
         const formControl = input.parentElement;
-        formControl.className = 'form-control success';
+        formControl.className = 'formControl success';
     }
     isEmail = (email) => {
         return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
@@ -150,7 +150,7 @@ export class Registration extends Component {
             email: this.state.userEmail,
             password: this.state.userPassword,
             repassword: this.state.userRePassword,
-            orders: {}
+            orders: []
 
         }
 
@@ -174,9 +174,11 @@ export class Registration extends Component {
                 }
 
             }
+
             else {
                 usersArray.push(usersObject);
                 localStorage.setItem('users', JSON.stringify(usersArray))
+
             }
             // if (JSON.parse(localStorage.getItem('users'))) {
             //     usersArray = (JSON.parse(localStorage.getItem('users')))
@@ -198,7 +200,8 @@ export class Registration extends Component {
                         <h2>Create Account</h2>
                     </div>
                     <form id="form" className="form" onSubmit={this.registrationChecker}>
-                        <div className="form-control">
+                        <div className="formControl">
+
 
                             <label htmlFor="firstName">Firstname</label>
                             <input type="text" id="firstName" name="firstName" value={this.state.firstName} onChange={this.inputTracker} onKeyUp={this.checkInputs} />
@@ -206,7 +209,7 @@ export class Registration extends Component {
                             <i className="fas fa-exclamation-circle"></i>
                             <small>Error message</small>
                         </div>
-                        <div className="form-control">
+                        <div className="formControl">
                             <label htmlFor="lastName">Last Name</label>
                             <input type="text" id="lastName" name="lastName" value={this.state.lastName} onChange={this.inputTracker} onKeyUp={this.checkInputs} />
                             <i className="fas fa-check-circle"></i>
@@ -215,7 +218,7 @@ export class Registration extends Component {
 
 
                         </div>
-                        <div className="form-control">
+                        <div className="formControl">
                             <label htmlFor="userEmail">Email</label>
                             <input type="email" id="userEmail" name="userEmail" value={this.state.userEmail} onChange={this.inputTracker} onKeyUp={this.checkInputs} />
                             <i className="fas fa-check-circle"></i>
@@ -223,7 +226,7 @@ export class Registration extends Component {
                             <small>Error message</small>
 
                         </div>
-                        <div className="form-control">
+                        <div className="formControl">
                             <label htmlFor="userPassword">Password</label>
                             <input type="password" id="userPassword" name="userPassword" value={this.state.userPassword} onChange={this.inputTracker} onKeyUp={this.checkInputs} />
                             <i className="fas fa-check-circle"></i>
@@ -231,7 +234,7 @@ export class Registration extends Component {
                             <small>Error message</small>
 
                         </div>
-                        <div className="form-control">
+                        <div className="formControl">
                             <label htmlFor="userRePassword">Repeat Password</label>
                             <input type="password" id="userRePassword" name="userRePassword" value={this.state.userRePassword} onChange={this.inputTracker} onKeyUp={this.checkInputs} />
                             <i className="fas fa-check-circle"></i>

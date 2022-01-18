@@ -16,14 +16,15 @@ export function CheckoutButton(props) {
         userCartArray.push(JSON.parse(localStorage.getItem('loggedUser')))
         const loggedUserEmail = userCartArray[0].email
         const allUsersArray = JSON.parse(localStorage.getItem('users'))
-        if(allUsersArray)
-        for (let i = 0; i < allUsersArray.length; i++) {
-            console.log(allUsersArray[i].email)
-            if (allUsersArray[i].email === loggedUserEmail) {
+        if (allUsersArray)
+            for (let i = 0; i < allUsersArray.length; i++) {
+                console.log(allUsersArray[i].email)
+                if (allUsersArray[i].email === loggedUserEmail) {
 
-                allUsersArray[i].orders.push(cartArray);
+                    allUsersArray[i].orders.push(cartArray);
+                }
             }
-        }
+
         for (let i = 0; i < userQuantity.length; i++) {
             userQuantity[i].quantity = 0;
         }
@@ -54,18 +55,17 @@ export function CheckoutButton(props) {
         <div >
             <form onSubmit={handleSubmit}>
                 <h1 className='heading'>Check Out</h1>
+
                 <div className='div-container'>
                     <div className='first-div'>
                         <div className='checkout-table'>
 
                             <div colspan='2' className='table-heading'>
-                                <h3>Billing details</h3>
+                                <h3 className="text-center">Billing details</h3>
                             </div>
-
-
                             <div class='useless-padding'>
                                 <label>First name :</label><br />
-                                <input type='text' value={localStorage.getItem('loggedUser')}></input>
+                                <input type='text' ></input>
                             </div>
                             <div class='useless-padding'>
                                 <label>Last name :</label><br />
@@ -74,17 +74,15 @@ export function CheckoutButton(props) {
 
 
                             <div colspan='2' class='useless-padding'>
-                                <label>
-                                    <p>Country/Region</p>
-                                    <select required name="country">
 
-                                        {countries.map((element, i) => {
-                                            return <option key={i}>{element.name}</option>
-                                        })}
-                                    </select>
-                                </label>
+                                <label>Country/Region</label>
+                                <select required name="country" className="select-city" >
+
+                                    {countries.map((element, i) => {
+                                        return <option key={i} >{element.name}</option>
+                                    })}
+                                </select>
                             </div>
-
                             <div colspan='2' class='useless-padding'>
                                 <label>Address</label><br />
                                 <input type='text'></input>
@@ -111,66 +109,56 @@ export function CheckoutButton(props) {
                         <div className='checkout-table2'>
 
                             <div colspan='2' className='table-heading'>
-                                <h3>Your order</h3>
+                                <h3 className="text-center">Cart totals</h3>
                             </div>
+                            <div className="detel-checkout">
 
+                                <div className='useless-padding'>
+                                    <div className='incart-total'>
+                                        <h5>Product</h5>
+                                        <h5>{title}</h5>
+                                    </div>
+                                </div>
+
+
+                                <div className='useless-padding'>
+                                    <div className='incart-total'>
+                                        <h5>Subtotal</h5>
+                                        <h5>{price}</h5>
+                                    </div>
+                                </div>
+                                <hr className="line-butween" />
+                            </div>
 
                             <div class='useless-padding'>
-                                <p>Product</p>
+                                <div className="counter-total">
+                                    <h5>Counter</h5>
+                                    <h5>{quantity}</h5>
+                                </div>
                             </div>
                             <div class='useless-padding'>
-                                <p>Subtotal</p>
+                                <div className="counter-total">
+                                    <h5>Total</h5>
+                                    <h5>{tottttal}$</h5>
+                                </div>
                             </div>
+                            <hr className="line-butween text-center" />
+                            <div colspan='2' class='cashon text-left' >
+                                <div classNam="warning " >
+                                    {/* <i class="fa-solid fa-triangle-exclamation"></i> */}
+                                    <p className="text-left"> Cash on delivery....</p>
+                                </div>
+                                <p> Your personal data will be Used to process your order ,support your experience throughout this website</p>
 
-                            <div class='useless-padding'>
-                                <p> {title}</p>
-                                <p> {price}</p>
-                                <p>{quantity}</p>
                             </div>
-
-
-                            <div class='useless-padding'>
-                                <p> {title}</p>
-                                <p> {price}</p>
-                                <p>{quantity}</p>
                             </div>
-
-
-                            <div class='useless-padding'>
-                                <p>Total</p>
-                            </div>
-                            <div class='useless-padding'>
-                                <p>{tottttal}$</p>
-                            </div>
-
-
-
-                            <div class='useless-padding'>
-                                <p>Total</p>
-                            </div>
-                            <div class='useless-padding'>
-                                <p>{tottttal}$</p>
-                            </div>
-
-
-                            <div colspan='2' class='useless-padding'>
-
-                                <p>Cash on delivery</p>
-                            </div>
-
-
-                            <div colspan='2' class='useless-padding'>
-                                <p>Lorem ipsum dolor sit amet</p>
-                            </div>
-
+                            <button onClick={checkOut} className="btnorder" >Place Order</button>
                         </div>
-                        <button onClick={checkOut} className="button-order">Place Order</button>
                     </div>
-                </div>
-            </form>
-        </div>
-    )
+                </form>
+            </div>
+        )
 
 }
 
-export default CheckoutButton
+                            export default CheckoutButton

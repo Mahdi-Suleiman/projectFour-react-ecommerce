@@ -34,7 +34,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.admin-dashboard-form input, textarea {
+.admin-dashboard-form input, #longDesc {
     display: block;
     width: 100%;
     height: auto;
