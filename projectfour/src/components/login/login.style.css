@@ -28,18 +28,18 @@
   padding: 30px 40px;
 }
 
-.form-control {
+.formControl {
   margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
 }
 
-.form-control label {
+.formControl label {
   display: inline-block;
   margin-bottom: 5px;
 }
 
-.form-control input {
+.formControl input {
   border: 2px solid #f0f0f0;
   border-radius: 4px;
   display: block;
@@ -49,37 +49,37 @@
   width: 100%;
 }
 
-.form-control input:focus {
+.formControl input:focus {
   outline: 0;
   border-color: #777;
 }
 
-.form-control.success input {
+.formControl.success input {
   border-color: #2ecc71;
 }
 
-.form-control.error input {
+.formControl.error input {
   border-color: #e74c3c;
 }
 
-.form-control i {
+.formControl i {
   visibility: hidden;
   position: absolute;
   top: 40px;
   right: 10px;
 }
 
-.form-control.success i.fa-check-circle {
+.formControl.success i.fa-check-circle {
   color: #2ecc71;
   visibility: visible;
 }
 
-.form-control.error i.fa-exclamation-circle {
+.formControl.error i.fa-exclamation-circle {
   color: #e74c3c;
   visibility: visible;
 }
 
-.form-control small {
+.formControl small {
   color: #e74c3c;
   position: absolute;
   bottom: 0;
@@ -87,7 +87,7 @@
   visibility: hidden;
 }
 
-.form-control.error small {
+.formControl.error small {
   visibility: visible;
 }
 
@@ -121,6 +121,14 @@
   margin-top: 20px;
   width: 100%;
   cursor: pointer;
+}
+
+#form a {
+  text-decoration: none;
+}
+
+.reg-btn:hover, .log-btn:hover {
+  filter: brightness(80%);
 }
 
 /* media query */

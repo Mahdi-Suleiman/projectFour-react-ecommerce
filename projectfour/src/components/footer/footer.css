@@ -8,11 +8,13 @@ a:hover {
 }
 
 ::selection {
-    background: #fec503;
+    /* background: #fec503; */
+    background: #d3d3d3;
     text-shadow: none;
 }
 
 footer {
+    margin-top: 2em;
     padding: 2rem 0;
     background-color: #212529;
 }
@@ -100,4 +102,9 @@ footer .quick-links {
 .fa-ellipsis-h {
     color: white;
     padding: 2rem 0;
+}
+
+footer .con2 .row {
+    padding: 0 !important;
+    margin: 0 !important;
 }

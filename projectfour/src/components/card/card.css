@@ -7,7 +7,7 @@
 
 }
 
-.titlecard{
+.titlecard {
     color: rgb(151, 46, 90);
     margin-left: 1.7em;
     padding-top: 1em;
@@ -47,7 +47,7 @@
     display: block;
 }
 
-p {
+#short-description {
     text-align: center;
     color: #b2bec3;
     padding: 0 0.5em;

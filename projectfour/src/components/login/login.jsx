@@ -29,6 +29,7 @@ export class Login extends Component {
                 this.props.handleLogIn();
                 if (this.props.userProfile)
                     this.props.handleSignIn();
+
                 alert("Thank You ...You Can Go To Home")
                 return (flag = false)
             }
@@ -51,17 +52,17 @@ export class Login extends Component {
             <main className="main-cont">
                 <div className="container-login">
                     <div className="header">
-                        <h2>Sign in</h2>
+                        <h2 className="text-center" >Sign in</h2>
                     </div>
                     <form id="form" className="form" onSubmit={this.loginValidation}>
-                        <div className="form-control">
+                        <div className="formControl">
                             <label htmlFor="username">Email</label>
                             <input type="text" id="username" name="userEmail" value={this.state.userEmail} onChange={this.loginFieldTracker} />
                             <i className="fas fa-check-circle"></i>
                             <i className="fas fa-exclamation-circle"></i>
                             <small id="result">Error message</small>
                         </div>
-                        <div className="form-control">
+                        <div className="formControl">
                             <label htmlFor="password">Password</label>
                             <input type="password" id="password" name="userPassword" value={this.state.userPassword} onChange={this.loginFieldTracker} />
                             <i className="fas fa-check-circle"></i>

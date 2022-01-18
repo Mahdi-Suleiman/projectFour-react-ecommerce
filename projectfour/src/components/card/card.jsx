@@ -1,10 +1,7 @@
 import React from 'react'
 import CardContainer from './card.containter'
 import './card.css'
-
 import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
-
-
 
 export default class Card extends React.Component {
     constructor(props) {
@@ -13,26 +10,27 @@ export default class Card extends React.Component {
             loggedIn: JSON.parse(localStorage.getItem('loggedUser')),
             clicked: false,
             localStorageData: JSON.parse(localStorage.getItem('products'))
-
         }
-    }
-    handleAddToCart = () => {
-        this.setState({ clicked: true })
     }
 
     render() {
 
-        if ((!this.state.clicked) || (this.state.clicked && this.state.loggedIn))
+        if ((!this.props.clicked) || (this.props.clicked && this.state.loggedIn))
             return (
-                <div className="card-container">
-                    {
-                        this.state.localStorageData.map((data, index) => {
-                            return (
-
-                                <CardContainer value={data} index={index} role={'user'} plusCounter={this.props.plusCounter} deleteCard={this.props.deleteCard} handleAddToCart={this.handleAddToCart} />
-                            )
-                        })
-                    }
+                <div>
+                    <h1 className="titlecard">Shop</h1>
+                    <div className="card-container">
+                        {this.props.cards &&
+                            this.props.cards.map((data, index) => {
+                                return (
+                                    <CardContainer value={data} index={index} role={'user'} plusCounter={this.props.plusCounter} deleteCard={this.props.deleteCard} handleAddToCart={this.props.handleAddToCart} />
+                                )
+                            })
+                        }
+                        {!this.props.cards &&
+                            <h1>No Products Added Yet !</h1>
+                        }
+                    </div>
                 </div>
             )
         else

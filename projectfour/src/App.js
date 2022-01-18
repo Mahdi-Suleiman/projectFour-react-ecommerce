@@ -8,15 +8,15 @@ import Card from './components/card/card';
 import AddToCart from './components/cart/addtocart';
 import Cart from './components/cart/cart';
 import CheckoutButton from './components/cart/checkout.button';
-
 import Navbar from './components/navbar/navbar';
-import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Homepage from './components/homepage/homepage';
-import CartDisplay from './components/cart/cart.display';
+
 import ProductDetails from './components/card/product.details';
 import Footer from './components/footer/footer';
 import CartDisplay from './components/cart/cart.display';
 import About from './components/About Us/About';
+
 
 class App extends React.Component {
     constructor() {
@@ -35,6 +35,10 @@ class App extends React.Component {
             show: false
 
         }
+    }
+
+    deleteCounter = ()=> {
+        this.setState({counter:0})
     }
 
     componentDidMount = () => {
@@ -62,20 +66,14 @@ class App extends React.Component {
         }
     }
 
-    minusCounter = (price) => {
-        if (JSON.parse(localStorage.getItem('loggedUser'))) {
-            // -1 to be solved
-            if (this.state.counter >= 0)
-                this.setState({ counter: this.state.counter - 1 })
-        }
-    }
-
     minusCounter = () => {
         if (JSON.parse(localStorage.getItem('loggedUser'))) {
+
             if (this.state.counter > 0)
                 this.setState({ counter: this.state.counter - 1 })
         }
     }
+
 
     handleAddToCart = () => {
         this.setState({ clicked: true })
@@ -90,7 +88,8 @@ class App extends React.Component {
 
     }
 
-    renderTableData = () => {
+    renderTableData = (e) => {
+        e.preventDefault();
         if (!this.state.show) {
             let index;
             let arrQuantity = this.state.quantity;
@@ -110,7 +109,6 @@ class App extends React.Component {
                         arrTitle.push(element.title)
                         arrQuantity.push(element.quantity)
                     })
-
                 })
                 this.setState({ price: arrPrice })
                 this.setState({ title: arrTitle })
@@ -133,10 +131,11 @@ class App extends React.Component {
                     <Route exact path="/signin" element={<Login handleLogIn={this.handleLogIn} />} />
                     <Route exact path="/registration" element={<Registration />} />
                     <Route exact path="/cartdisplay" element={<Cart plusCounter={this.plusCounter} minusCounter={this.minusCounter} deleteItem={this.deleteItem} quantity={this.state.quantity} />} />
-                    <Route exact path="/checkout" element={<CheckoutButton />} />
+                    <Route exact path="/checkout" element={<CheckoutButton deleteCounter={this.deleteCounter}/>} />
                     <Route exact path="/productdetails" element={<ProductDetails plusCounter={this.plusCounter} handleAddToCart={this.handleAddToCart} />} />
                     <Route exact path="/admin" element={<Admin />} />
                     <Route exact path="/about" element={<About />} />
+
                 </Routes>
                 <Footer />
 

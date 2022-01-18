@@ -1,0 +1,18 @@
+    .youtube iframe {
+        margin: 0 auto;
+        display: block;
+        width: 80%;
+        height: 550px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .youtube iframe {
+            height: 350px;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .youtube iframe {
+            height: 300px;
+        }
+    }

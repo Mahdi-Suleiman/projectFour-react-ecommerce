@@ -9,6 +9,7 @@ export default function Navbar(props) {
             localStorage.removeItem('cart')
         }
         localStorage.removeItem('loggedUser')
+        props.handleLogOut();
     }
 
     return (
@@ -16,7 +17,7 @@ export default function Navbar(props) {
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">PC builders</a>
+                    <img src="/LOGO.png" width="100px" alt="1" />
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -29,7 +30,7 @@ export default function Navbar(props) {
                                 <Link class="nav-link" to="/card">Products</Link>
                             </li>
                             <li class="nav-item">
-                                <Link class="nav-link" to="/card">Profile</Link>
+                                <Link class="nav-link" to="/userprofile">Profile</Link>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
@@ -44,6 +45,7 @@ export default function Navbar(props) {
                                 </li>
                             </div> : <li class="nav-item">
                                 <Link class="nav-link " to="/signin">Login</Link>
+
                             </li>}
                         </ul>
 

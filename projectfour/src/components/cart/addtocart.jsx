@@ -25,6 +25,7 @@ export class AddToCart extends Component {
             let flag = false;
             productsArray = JSON.parse(localStorage.getItem('products'))[index]
             if (localStorage.getItem('cart') && localStorage.getItem('cart').length !== 0) {
+
                 cartArray = JSON.parse(localStorage.getItem('cart'))
                 for (let i = 0; i < cartArray.length; i++) {
                     if (i === cartArray.length - 1) { flag = true }

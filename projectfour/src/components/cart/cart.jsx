@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import CartDisplay from './cart.display';
+import './cartdisplay.css'
+import { Link } from 'react-router-dom';
 
 export class Cart extends Component {
     constructor(props) {
@@ -17,11 +19,13 @@ export class Cart extends Component {
         console.log(this.props.quantity)
         for (let i = 0; i < indexArray.length; i++) {
             if (id === i) {
+
                 idIndex = i;
                 break;
             }
         }
         indexArray[idIndex].quantity += 1;
+
         localStorage.setItem('cart', JSON.stringify(indexArray))
         this.setState({ quantity: indexArray })
     }
@@ -31,6 +35,7 @@ export class Cart extends Component {
         let indexArray = this.props.quantity;
         for (let i = 0; i < indexArray.length; i++) {
             if (id === i) {
+
                 idIndex = i;
                 break;
             }
@@ -39,17 +44,22 @@ export class Cart extends Component {
             indexArray[idIndex].quantity -= 1;
             localStorage.setItem('cart', JSON.stringify(indexArray))
             this.setState({ quantity: indexArray })
+
         }
     }
 
     render() {
 
         return (
-            <div>
+            <div className="displaying-cart">
+                <h1 className="titleProductPage"> My Cart </h1>
+                <div className="centering-div"> 
                 {localStorage.getItem('cart') ?
                     JSON.parse(localStorage.getItem('cart')).map((data, indx) =>
 
                         <CartDisplay img={data.img} title={data.title} indx={indx} shortDesc={data.shortDesc} price={data.price} quantity={data.quantity} id={data.id} plusItem={this.plusItem} minusItem={this.minusItem} plusCounter={this.props.plusCounter} minusCounter={this.props.minusCounter} deleteItem={this.props.deleteItem} />) : <h1>Your cart is empty</h1>}
+                        </div>
+                        <Link to="/checkout"><button className="btnplussbtn cntr"> Proceed to checkout</button></Link>
             </div>
         )
 
