@@ -17,6 +17,7 @@ export default function CartDisplay(props) {
             
             <button onClick={() => props.deleteItem(props.indx)} className="btnplussbtn red">Delete Item</button>
             </div>
+
         </div>
     )
 }

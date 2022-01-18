@@ -4,6 +4,7 @@ const API = "AIzaSyA5aEZ23T4Sk9SslAO2-yLNhLR-4ft0bQ0";
 const channelId = "UChVhSgRKnAvCZgUL8wIFIkQ";
 const maxResults = 10;
 const finalUrl = `https://www.googleapis.com/youtube/v3/search?key=${API}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}`;
+
 class YouTube extends React.Component {
   constructor(props) {
     super(props);
@@ -44,6 +45,7 @@ class YouTube extends React.Component {
       </div>
     );
   }
+
 }
 
 

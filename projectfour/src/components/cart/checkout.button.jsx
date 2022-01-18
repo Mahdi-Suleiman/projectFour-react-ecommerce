@@ -24,6 +24,7 @@ export function CheckoutButton(props) {
                     allUsersArray[i].orders.push(cartArray);
                 }
             }
+
         for (let i = 0; i < userQuantity.length; i++) {
             userQuantity[i].quantity = 0;
         }
@@ -47,7 +48,7 @@ export function CheckoutButton(props) {
                 quantity = data.quantity;
                 title = data.title
             }
-
+// this is the up to date commit
         })
     }
     return (
@@ -89,6 +90,7 @@ export function CheckoutButton(props) {
                             <div colspan='2' class='useless-padding'>
                                 <label>Phone number</label><br />
                                 <input type='text'></input>
+
                             </div>
 
 
@@ -118,6 +120,7 @@ export function CheckoutButton(props) {
                                     </div>
                                 </div>
 
+
                                 <div className='useless-padding'>
                                     <div className='incart-total'>
                                         <h5>Subtotal</h5>
@@ -126,6 +129,7 @@ export function CheckoutButton(props) {
                                 </div>
                                 <hr className="line-butween" />
                             </div>
+
                             <div class='useless-padding'>
                                 <div className="counter-total">
                                     <h5>Counter</h5>
@@ -145,6 +149,7 @@ export function CheckoutButton(props) {
                                     <p className="text-left"> Cash on delivery....</p>
                                 </div>
                                 <p> Your personal data will be Used to process your order ,support your experience throughout this website</p>
+
                             </div>
                             </div>
                             <button onClick={checkOut} className="btnorder" >Place Order</button>

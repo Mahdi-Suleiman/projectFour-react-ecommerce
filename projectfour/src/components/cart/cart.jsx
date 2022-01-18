@@ -60,6 +60,7 @@ export class Cart extends Component {
                         <CartDisplay img={data.img} title={data.title} indx={indx} shortDesc={data.shortDesc} price={data.price} quantity={data.quantity} id={data.id} plusItem={this.plusItem} minusItem={this.minusItem} plusCounter={this.props.plusCounter} minusCounter={this.props.minusCounter} deleteItem={this.props.deleteItem} />) : <h1>Your cart is empty</h1>}
                         </div>
                         <Link to="/checkout"><button className="btnplussbtn cntr"> Proceed to checkout</button></Link>
+
             </div>
         )
 

@@ -37,7 +37,9 @@ class App extends React.Component {
         }
     }
 
+
     deleteCounter = ()=> {
+
         this.setState({counter:0})
     }
 

@@ -9,9 +9,11 @@ export default class Card extends React.Component {
         this.state = {
             loggedIn: JSON.parse(localStorage.getItem('loggedUser')),
             clicked: false,
+
             localStorageData: JSON.parse(localStorage.getItem('products'))
         }
     }
+
 
     render() {
 
@@ -23,12 +25,14 @@ export default class Card extends React.Component {
                         {this.props.cards &&
                             this.props.cards.map((data, index) => {
                                 return (
+
                                     <CardContainer value={data} index={index} role={'user'} plusCounter={this.props.plusCounter} deleteCard={this.props.deleteCard} handleAddToCart={this.props.handleAddToCart} />
                                 )
                             })
                         }
                         {!this.props.cards &&
                             <h1>No Products Added Yet !</h1>
+
                         }
                     </div>
                 </div>

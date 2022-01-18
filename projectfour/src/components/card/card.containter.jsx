@@ -28,6 +28,7 @@ class CardContainer extends Component {
                         // <DeleteCard buttonValue="Add to cart" index={props.index} plusCounter={props.plusCounter} imgURL={props.value.img} role="user" /> 
 
                         <AddToCart index={this.props.index} plusCounter={this.props.plusCounter} handleAddToCart={this.props.handleAddToCart} /> :
+
                         // <DeleteCard buttonValue="Delete Item" index={props.index} imgURL={props.value.img} role="admin" />
                         <button className="add-to-cart-button" onClick={this.props.deleteCard}> Delete Card</button>
                 }
